@@ -5,8 +5,8 @@
 <h1>recipes</h1>
 <ul>
     {% for recipe in recipes %}
+        <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="20%" height="20%">
         <li>
-            <img src="{{recipe['image']}}" alt="..." width="10%" height="10%">
             <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a>
         </li>
     {% endfor %}

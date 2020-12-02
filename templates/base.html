@@ -2,11 +2,36 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{% block title %}{% endblock %}</title>
     </head>
 
     <body>
+        {% block header %}
+            <header>
+                
+                <nav>
+                    <!-- <img class="logo" src="#" alt="logo"> -->
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <!--
+                        <li><a href="#">Recipes</a></li>
+                        <li><a href="#">Holiday Cooking</a></li>
+                        <li><a href="#">Log in</a></li>
+                        <li><a href="#">Sign Up</a></li>
+                        -->
+                    </ul>
+                </nav>
+                <!-- <img src="#" alt="description" /> -->
+            </header>
+        {% endblock %}
+
         {% block body %}
+        {% endblock %}
+
+        {% block footer %}
+            <footer>
+            </footer>
         {% endblock %}
     </body>
 </html>

@@ -6,13 +6,17 @@ app = Flask(__name__)
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 
 headers = {
-    'x-rapidapi-key': "8d518c5534mshba4a11ab4c1cb0ep1c69d1jsn4c0415dbddd7",
+    'x-rapidapi-key': "RAPID-API-KEY",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
 findRecipes = "recipes/search"
 
 @app.route('/')
+def homepage():
+    return render_template('index.html')
+
+@app.route('/search')
 def searchRecipes():
     return render_template('search_page.html')
 

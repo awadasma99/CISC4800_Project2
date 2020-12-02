@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} search {% endblock %}
+
+{% block body %} 
+<h1>search</h1>
+<form action="/recipes"> 
+    <input type="text" placeholder="lemons, sugar, mint" aria-label="ingredients" aria-describedby="search-button" name="ingredients">
+    <button id="search-button" type="submit">search</button> 
+</form>
+{% endblock %}

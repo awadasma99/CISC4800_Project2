@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} {{recipe['title']}} {% endblock %}
+
+{% block body %}
+<img src="{{recipe['image']}}" alt="..." width="20%" height="20%">
+<h1>{{recipe['title']}}</h1>
+<p> Ingredients <br>
+    <!-- array of objects titled extendedIngredients, each object has a name -->
+    <ul>
+        {% for ingredient in recipe['extendedIngredients'] %}
+            <li>{{ingredient['name']}}</li>
+        {% endfor %}
+    </ul>
+</p>
+<p> Instructions <br>
+    {{recipe['instructions']}}
+</p>
+
+{% endblock %}

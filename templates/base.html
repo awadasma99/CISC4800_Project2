@@ -10,20 +10,22 @@
         {% block header %}
             <header>
                 
-                <nav>
+                <div class="nav">
                     <!-- <img class="logo" src="#" alt="logo"> -->
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/login">Log in</a></li>
-                        
-                        <!--
-                        <li><a href="#">Recipes</a></li>
-                        <li><a href="#">Holiday Cooking</a></li>
-                        <li><a href="#">Log in</a></li>
-                        <li><a href="#">Sign Up</a></li>
-                        -->
-                    </ul>
-                </nav>
+                    <a href="/">Holiday Cooking</a>
+                    <a href="/"> Vegan </a>
+                    <a href="/"> Vegetarian </a>
+                    <a href="/"> Keto </a>
+                    <div class="dropdown">
+                        <button class="dropbutton"> Account 
+                            <i class="fa fa-carat-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/Login">Log in</a>
+                            <a href="/Signup">Sign up</a>
+                        </div>
+                    </div>
+                </div>
                 <!-- <img src="#" alt="description" /> -->
             </header>
         {% endblock %}

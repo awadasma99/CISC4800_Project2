@@ -12,8 +12,15 @@
         {% endfor %}
     </ul>
 </p>
+
 <p> Instructions <br>
-    {{recipe['instructions']}}
+    <ol>
+        {% for object in instructions %}
+            {% for step in object['steps'] %}
+                <li>{{step['step']}}</li>
+            {% endfor %}
+        {% endfor %}
+    </ol>
 </p>
 
 {% endblock %}

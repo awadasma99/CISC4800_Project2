@@ -27,7 +27,7 @@ class users(db.Model):
 def homepage():
     return render_template('index.html')
    
-@app.route("/login", methods=["POST", "GET"])
+@app.route("/Login", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
         return render_template("user.html")

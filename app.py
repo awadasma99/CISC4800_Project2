@@ -8,7 +8,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 
 headers = {
-    'x-rapidapi-key': "8d518c5534mshba4a11ab4c1cb0ep1c69d1jsn4c0415dbddd7",
+    'x-rapidapi-key': "ENTER API-KEY",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 

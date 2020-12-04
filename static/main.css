@@ -1,2 +1,10 @@
-body {}
-nav {}
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin:0px;
+}
+nav {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%
+}

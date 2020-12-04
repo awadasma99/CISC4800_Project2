@@ -3,13 +3,6 @@
 {% block title %} Homepage {% endblock %}
 
 {% block body %} 
-    <!--
-    <form class="example" action="#">
-        <input type="text" placeholder="Search.." name="search">
-        <button type="submit"><i class="search-search"></i></button>
-    </form>
-    -->
-
     <form action="/recipes"> 
         <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="ingredients" aria-describedby="search-button" name="ingredients">
         <button id="search-button" type="submit">search</button> 
@@ -36,5 +29,15 @@
                 <p>description</p>
             </div> 
         </div>
-        -->
+    -->
+
+    <h1>random recipes</h1>
+    <ul>
+        {% for recipe in recipes %}
+            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="20%" height="20%">
+            <li>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

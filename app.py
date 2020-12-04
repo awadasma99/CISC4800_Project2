@@ -2,17 +2,17 @@ from flask import Flask, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy
 
 import requests
+import itertools 
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///users.sqlite3'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 
+url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 headers = {
     'x-rapidapi-key': "API-KEY",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
-
-findRecipes = "recipes/search"
 
 db = SQLAlchemy(app)
 class users(db.Model):
@@ -23,9 +23,22 @@ class users(db.Model):
         self.email = email
         self.password = password
 
+def filter_recipes(recipe): 
+    if not recipe["instructions"]: 
+        return False 
+    else:
+        return True
+
 @app.route('/')
 def homepage():
-    return render_template('index.html')
+    randomRecipes = "recipes/random"
+    querystring = {"number":"50"}
+    response = requests.request("GET", url + randomRecipes, headers=headers, params=querystring).json()
+
+    filtered_results = filter(filter_recipes, response['recipes'])
+    first_twelve = itertools.islice(filtered_results, 12)
+
+    return render_template('index.html', recipes=first_twelve)
    
 @app.route("/Login", methods=["POST", "GET"])
 def login():
@@ -40,6 +53,7 @@ def login():
 
 @app.route('/recipes') 
 def recipe_results():
+    findRecipes = "recipes/search"
     if (str(request.args['ingredients']).strip() != ""):
         query = {"query":request.args['ingredients'],"number":"10","offset":"0","instructionsRequired":"true"}
         response = requests.request("GET", url + findRecipes, headers=headers, params=query).json()
@@ -58,7 +72,6 @@ def recipe():
     querystring = {"stepBreakdown":"true"}
     analyzed_instructions = requests.request("GET", url + analyzed_instructions_endpoint, headers=headers, params=querystring).json()
 
-    # return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions[0]['steps'])
     return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions)
 
 if __name__ == '__main__':

@@ -8,7 +8,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 
 headers = {
-    'x-rapidapi-key': "ENTER API-KEY",
+    'x-rapidapi-key': "8d518c5534mshba4a11ab4c1cb0ep1c69d1jsn4c0415dbddd7",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
@@ -48,10 +48,18 @@ def recipe_results():
 
 @app.route('/recipe')
 def recipe():
+    # recipe details
     recipe_id = request.args['id']
     recipe_info_endpoint = "recipes/{0}/information".format(recipe_id)
     recipe_details = requests.request("GET", url + recipe_info_endpoint, headers=headers).json()
-    return render_template('recipe.html', recipe=recipe_details)
+
+    # analyzed instructions 
+    analyzed_instructions_endpoint = "recipes/{0}/analyzedInstructions".format(recipe_id)
+    querystring = {"stepBreakdown":"true"}
+    analyzed_instructions = requests.request("GET", url + analyzed_instructions_endpoint, headers=headers, params=querystring).json()
+
+    # return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions[0]['steps'])
+    return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions)
 
 if __name__ == '__main__':
     db.create_all()

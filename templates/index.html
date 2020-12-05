@@ -5,8 +5,8 @@
 {% block body %} 
     <h1>recipe search</h1>
     <form action="/recipes"> 
-        <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="recipe" aria-describedby="search-button" name="recipe">
-        <button id="search-button" type="submit">search</button> 
+        <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="recipe" aria-describedby="search-button" name="recipe" onkeyup="validate(this)">
+        <button id="search-button" type="submit" disabled>search</button> 
     </form>
 
     <!-- 
@@ -41,4 +41,15 @@
             </li>
         {% endfor %}
     </ul>
+
+    <script>
+        function validate(input) {
+            const button = document.getElementById('search-button'); 
+            if (input.value != "") {
+                button.disabled = false;
+            } else {
+                button.disabled = true; 
+            }
+        }
+    </script>
 {% endblock %}

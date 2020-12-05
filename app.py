@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy
-
 import requests
 import itertools 
 
@@ -10,7 +9,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 headers = {
-    'x-rapidapi-key': "API-KEY",
+    'x-rapidapi-key': "8d518c5534mshba4a11ab4c1cb0ep1c69d1jsn4c0415dbddd7",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
@@ -29,6 +28,13 @@ def filter_recipes(recipe):
     else:
         return True
 
+@app.route("/Login", methods=["POST", "GET"])
+def login():
+    if request.method == "POST":
+        return render_template("user.html")
+    else:
+        return render_template("login.html")
+
 @app.route('/')
 def homepage():
     randomRecipes = "recipes/random"
@@ -39,23 +45,12 @@ def homepage():
     first_twelve = itertools.islice(filtered_results, 12)
 
     return render_template('index.html', recipes=first_twelve)
-   
-@app.route("/Login", methods=["POST", "GET"])
-def login():
-    if request.method == "POST":
-        return render_template("user.html")
-    else:
-        return render_template("login.html")
-
-# @app.route('/search')
-# def searchRecipes():
-#    return render_template('search_page.html')
 
 @app.route('/recipes') 
-def recipe_results():
+def recipes():
     findRecipes = "recipes/search"
-    if (str(request.args['ingredients']).strip() != ""):
-        query = {"query":request.args['ingredients'],"number":"10","offset":"0","instructionsRequired":"true"}
+    if (str(request.args['recipe']).strip() != ""):
+        query = {"query":request.args['recipe'],"number":"10","offset":"0","instructionsRequired":"true"}
         response = requests.request("GET", url + findRecipes, headers=headers, params=query).json()
         results = response['results']        
         return render_template('recipes.html', recipes=results)

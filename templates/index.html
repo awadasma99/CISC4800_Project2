@@ -3,8 +3,9 @@
 {% block title %} Homepage {% endblock %}
 
 {% block body %} 
+    <h1>recipe search</h1>
     <form action="/recipes"> 
-        <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="ingredients" aria-describedby="search-button" name="ingredients">
+        <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="recipe" aria-describedby="search-button" name="recipe">
         <button id="search-button" type="submit">search</button> 
     </form>
 

@@ -72,7 +72,11 @@ def recipe():
     querystring = {"stepBreakdown":"true"}
     analyzed_instructions = requests.request("GET", url + analyzed_instructions_endpoint, headers=headers, params=querystring).json()
 
-    return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions)
+    # similar recipes
+    similar_endpoint = "recipes/{0}/similar".format(recipe_id)
+    similar_recipes = requests.request("GET", url + similar_endpoint, headers=headers).json()
+
+    return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions, similarRecipes=similar_recipes)
 
 if __name__ == '__main__':
     db.create_all()

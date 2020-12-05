@@ -5,6 +5,7 @@
 {% block body %}
 <img src="{{recipe['image']}}" alt="..." width="20%" height="20%">
 <h1>{{recipe['title']}}</h1>
+
 <p> Ingredients <br>
     <ul>
         {% for ingredient in recipe['extendedIngredients'] %}
@@ -21,6 +22,38 @@
             {% endfor %}
         {% endfor %}
     </ol>
+</p>
+
+<h2>Extra Info</h2>
+<p>
+
+    Time to Cook: {{recipe['readyInMinutes']}} minutes <br>
+
+    Diet(s): 
+    {% if recipe['diets'] %} 
+        {{recipe['diets']}} <br>
+    {% else %}
+        None <br>
+    {% endif %}
+
+    Cuisine: 
+    {% if recipe['cuisines'] %} 
+        {{recipe['cuisines']}} <br>
+    {% else %}
+        None <br>
+    {% endif %}
+
+    Servings: {{recipe['servings']}} <br>
+</p>
+
+<h2>Similar Recipes</h2>
+<p>
+    {% for recipe in similarRecipes[0:4] %}
+        <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="20%" height="20%">
+        <li>
+            <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a>
+        </li>
+    {% endfor %}
 </p>
 
 {% endblock %}

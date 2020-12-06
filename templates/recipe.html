@@ -6,27 +6,43 @@
 <img src="{{recipe['image']}}" alt="..." width="20%" height="20%">
 <h1>{{recipe['title']}}</h1>
 
-<p> Ingredients <br>
-    <ul>
-        {% for ingredient in recipe['extendedIngredients'] %}
-            <li>{{ingredient['name']}}</li>
-        {% endfor %}
-    </ul>
-</p>
+<div class="split left">
+    <div class="left aligned">
+        <p><h5> Time to Cook: </h5>
+            <br>{{recipe['readyInMinutes']}} minutes
+        </p>
 
-<p> Instructions <br>
-    <ol>
-        {% for object in instructions %}
-            {% for step in object['steps'] %}
-                <li>{{step['step']}}</li>
-            {% endfor %}
-        {% endfor %}
-    </ol>
-</p>
+        <p><h5> Ingredients </h5>
+            <br>
+            <ul>
+                {% for ingredient in recipe['extendedIngredients'] %}
+                    <li>{{ingredient['name']}}</li>
+                {% endfor %}
+            </ul>
+        </p>
 
-<h2>Extra Info</h2>
+        <p><h5> Servings: </h5>
+            <br>{{recipe['servings']}}
+        </p>
+    </div>
+</div>
+
+<div class="split right">
+    <div class="centered">
+        <p> Instructions <br>
+            <ol>
+                {% for object in instructions %}
+                    {% for step in object['steps'] %}
+                        <li>{{step['step']}}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ol>
+        </p>
+    </div>
+</div>
+
+<h5>Extra Info</h5>
 <p>
-
     Time to Cook: {{recipe['readyInMinutes']}} minutes <br>
 
     Diet(s): 
@@ -42,8 +58,6 @@
     {% else %}
         None <br>
     {% endif %}
-
-    Servings: {{recipe['servings']}} <br>
 </p>
 
 <h2>Similar Recipes</h2>

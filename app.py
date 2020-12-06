@@ -50,7 +50,7 @@ def homepage():
 def recipes():
     findRecipes = "recipes/search"
     if (str(request.args['recipe']).strip() != ""):
-        query = {"query":request.args['recipe'],"number":"10","offset":"0","instructionsRequired":"true"}
+        query = {"query":request.args['recipe'],"number":"10","offset":"0","instructionsRequired":"true","addRecipeNutrition":"true"}
         response = requests.request("GET", url + findRecipes, headers=headers, params=query).json()
         results = response['results']        
         return render_template('recipes.html', recipes=results)
@@ -60,7 +60,9 @@ def recipe():
     # recipe details
     recipe_id = request.args['id']
     recipe_info_endpoint = "recipes/{0}/information".format(recipe_id)
-    recipe_details = requests.request("GET", url + recipe_info_endpoint, headers=headers).json()
+    recipe_details = requests.request("GET", url + recipe_info_endpoint + "?includeNutrition=true", headers=headers).json()
+
+    print(recipe_details)
 
     # analyzed instructions 
     analyzed_instructions_endpoint = "recipes/{0}/analyzedInstructions".format(recipe_id)
@@ -71,7 +73,10 @@ def recipe():
     similar_endpoint = "recipes/{0}/similar".format(recipe_id)
     similar_recipes = requests.request("GET", url + similar_endpoint, headers=headers).json()
 
-    return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions, similarRecipes=similar_recipes)
+    # nutrition info 
+    nutrition = recipe_details['nutrition']['nutrients'] 
+
+    return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions, similarRecipes=similar_recipes, nutrition=nutrition)
 
 if __name__ == '__main__':
     db.create_all()

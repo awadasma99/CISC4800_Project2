@@ -41,6 +41,17 @@
     </div>
 </div>
 
+<h5>Nutrition Info</h5>
+<p>
+    Calories: {{nutrition[0]['amount']}} {{nutrition[0]['unit']}}<br>
+    Fat: {{nutrition[1]['amount']}} {{nutrition[1]['unit']}}<br>
+    Saturated Fat: {{nutrition[2]['amount']}} {{nutrition[2]['unit']}}<br>
+    Carbohydrates: {{nutrition[3]['amount']}} {{nutrition[3]['unit']}}<br>
+    Sugar: {{nutrition[5]['amount']}} {{nutrition[5]['unit']}}<br>
+    Cholesterol: {{nutrition[6]['amount']}} {{nutrition[6]['unit']}}<br>
+    Protein: {{nutrition[8]['amount']}} {{nutrition[8]['unit']}}<br>
+</p>
+
 <h5>Extra Info</h5>
 <p>
     Time to Cook: {{recipe['readyInMinutes']}} minutes <br>
@@ -57,7 +68,7 @@
         {{recipe['cuisines']}} <br>
     {% else %}
         None <br>
-    {% endif %}
+    {% endif %}    
 </p>
 
 <h2>Similar Recipes</h2>

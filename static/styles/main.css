@@ -8,3 +8,20 @@ nav {
     top: 0;
     width: 100%
 }
+
+/* styling recipe page */
+.column {
+    float: left;
+    padding: 30px;
+  }
+.left {
+    width: 30%;
+} 
+.right {
+    width: 70%;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

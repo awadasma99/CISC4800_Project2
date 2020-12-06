@@ -48,9 +48,10 @@ def homepage():
 
 @app.route('/recipes') 
 def recipes():
-    findRecipes = "recipes/search"
+    findRecipes = "recipes/complexSearch"
     if (str(request.args['recipe']).strip() != ""):
-        query = {"query":request.args['recipe'],"number":"10","offset":"0","instructionsRequired":"true","addRecipeNutrition":"true"}
+        allergies = request.args['allergies']
+        query = {"query":request.args['recipe'],"number":"10","offset":"0","instructionsRequired":"true","addRecipeNutrition":"true","excludeIngredients":allergies}
         response = requests.request("GET", url + findRecipes, headers=headers, params=query).json()
         results = response['results']        
         return render_template('recipes.html', recipes=results)

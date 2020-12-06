@@ -1,39 +1,63 @@
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, flash
 from flask_sqlalchemy import SQLAlchemy
+from flask import Blueprint
+from flask_login import LoginManager, current_user, UserMixin
+from datetime import datetime
 import requests
 import itertools 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///users.sqlite3'
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 headers = {
-    'x-rapidapi-key': "API-KEY",
+    'x-rapidapi-key': "",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
 db = SQLAlchemy(app)
-class users(db.Model):
-    email = db.Column("email", db.String(100), primary_key= True)
-    password = db.Column("password", db.String(100))
+app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///users.sqlite3'
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+login_manager = LoginManager()
 
-    def __int__(self, email, password):
-        self.email = email
-        self.password = password
+from app import db
+db.create_all()
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True) 
+    email = db.Column(db.String(100), unique=True)
+    password = db.Column(db.String(100))
+    name = db.Column(db.String(1000))
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.get(user_id)
+
+@app.route("/Login", methods=["POST", "GET"])
+def login():
+    if request.method == "POST":
+       return render_template("user.html")
+    else:
+       return render_template("login.html")
+   
+@app.route("/signup", methods=["POST", "GET"])
+def signup():
+    if request.method == "POST":
+        return render_template("user.html")
+    else:
+        return render_template("index.html")
+
+@app.route("/logout")
+def logout():
+    return render_template("index.html")
+
+@app.route("/user")
+def user():
+        return render_template("user.html")
 
 def filter_recipes(recipe): 
     if not recipe["instructions"]: 
         return False 
     else:
         return True
-
-@app.route("/Login", methods=["POST", "GET"])
-def login():
-    if request.method == "POST":
-        return render_template("user.html")
-    else:
-        return render_template("login.html")
 
 @app.route('/')
 def homepage():
@@ -79,5 +103,4 @@ def recipe():
     return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions, similarRecipes=similar_recipes, nutrition=nutrition)
 
 if __name__ == '__main__':
-    db.create_all()
     app.run(debug=True)

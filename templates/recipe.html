@@ -4,10 +4,10 @@
 
 {% block body %}
 <img src="{{recipe['image']}}" alt="..." width="20%" height="20%">
-<h1>{{recipe['title']}}</h1>
+<center><h3>{{recipe['title']}}</h3></center>
 
-<div class="split left">
-    <div class="left aligned">
+<div class="row">
+    <div class="column left">
         <p><h5> Time to Cook: </h5>
             <br>{{recipe['readyInMinutes']}} minutes
         </p>
@@ -24,11 +24,20 @@
         <p><h5> Servings: </h5>
             <br>{{recipe['servings']}}
         </p>
-    </div>
-</div>
 
-<div class="split right">
-    <div class="centered">
+        <h5>Nutrition Info</h5>
+        <p>
+            Calories: {{nutrition[0]['amount']}} {{nutrition[0]['unit']}}<br>
+            Fat: {{nutrition[1]['amount']}} {{nutrition[1]['unit']}}<br>
+            Saturated Fat: {{nutrition[2]['amount']}} {{nutrition[2]['unit']}}<br>
+            Carbohydrates: {{nutrition[3]['amount']}} {{nutrition[3]['unit']}}<br>
+            Sugar: {{nutrition[5]['amount']}} {{nutrition[5]['unit']}}<br>
+            Cholesterol: {{nutrition[6]['amount']}} {{nutrition[6]['unit']}}<br>
+            Protein: {{nutrition[8]['amount']}} {{nutrition[8]['unit']}}<br>
+        </p>
+    </div>
+
+    <div class="column right">
         <p> Instructions <br>
             <ol>
                 {% for object in instructions %}
@@ -39,6 +48,7 @@
             </ol>
         </p>
     </div>
+
 </div>
 
 <h5>Nutrition Info</h5>
@@ -54,8 +64,6 @@
 
 <h5>Extra Info</h5>
 <p>
-    Time to Cook: {{recipe['readyInMinutes']}} minutes <br>
-
     Diet(s): 
     {% if recipe['diets'] %} 
         {{recipe['diets']}} <br>

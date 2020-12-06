@@ -51,7 +51,13 @@ def recipes():
     findRecipes = "recipes/complexSearch"
     if (str(request.args['recipe']).strip() != ""):
         allergies = request.args['allergies']
-        query = {"query":request.args['recipe'],"number":"10","offset":"0","instructionsRequired":"true","addRecipeNutrition":"true","excludeIngredients":allergies}
+
+        if (request.args['diet']):
+            diet = request.args['diet']
+        else:
+            diet = ""
+
+        query = {"query":request.args['recipe'],"number":"10","offset":"0","instructionsRequired":"true","addRecipeNutrition":"true","excludeIngredients":allergies,"diet":diet}
         response = requests.request("GET", url + findRecipes, headers=headers, params=query).json()
         results = response['results']        
         return render_template('recipes.html', recipes=results)
@@ -62,8 +68,6 @@ def recipe():
     recipe_id = request.args['id']
     recipe_info_endpoint = "recipes/{0}/information".format(recipe_id)
     recipe_details = requests.request("GET", url + recipe_info_endpoint + "?includeNutrition=true", headers=headers).json()
-
-    print(recipe_details)
 
     # analyzed instructions 
     analyzed_instructions_endpoint = "recipes/{0}/analyzedInstructions".format(recipe_id)

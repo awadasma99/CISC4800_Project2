@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, session, flash
 from flask_sqlalchemy import SQLAlchemy
-from flask import Blueprint
-from flask_login import LoginManager, current_user, UserMixin
-from datetime import datetime
+from pymongo import MongoClient
 import requests
 import itertools 
 
@@ -13,23 +11,11 @@ headers = {
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
-db = SQLAlchemy(app)
-app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///users.sqlite3'
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-login_manager = LoginManager()
+client = MongoClient("localhost", 27017)
+db = client['mydb']
+print(db)
+coll = db["users"]
 
-from app import db
-db.create_all()
-
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True) 
-    email = db.Column(db.String(100), unique=True)
-    password = db.Column(db.String(100))
-    name = db.Column(db.String(1000))
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.get(user_id)
 
 @app.route("/Login", methods=["POST", "GET"])
 def login():
@@ -38,12 +24,17 @@ def login():
     else:
        return render_template("login.html")
    
-@app.route("/signup", methods=["POST", "GET"])
+@app.route("/Signup", methods=["POST", "GET"])
 def signup():
     if request.method == "POST":
+        name = ["name"]
+        email = ["email"]
+        password = ["password"]
+        info = [{"name" : name, "email" : email, "password" : password}]
+        user = coll.insert_one(info)
         return render_template("user.html")
     else:
-        return render_template("index.html")
+        return render_template("signup.html")
 
 @app.route("/logout")
 def logout():

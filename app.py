@@ -14,7 +14,7 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/myDatabase"
 mongo = PyMongo(app)
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 headers = {
-    'x-rapidapi-key': "",
+    'x-rapidapi-key': "8d518c5534mshba4a11ab4c1cb0ep1c69d1jsn4c0415dbddd7",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
@@ -22,6 +22,7 @@ log = LoginManager(app)
 log.login_view = "login"
 client = MongoClient("localhost", 27017)
 db = client['mydb']
+print(db)
 coll = db["users"]
 
 class User:
@@ -49,17 +50,35 @@ class User:
             return None
         return User(name=usr["name"], email=usr["email"], password=usr["password"])
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if current_user.is_authenticated:
+@app.route('/Signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        render_template('signup.html')
+        name = ["name"]
         email = ["email"]
         password = ["password"]
+        coll.insert_one({"name": name, "email": email, "password": password})
         user = mongo.db.Users.find_one({"email": email})
-        if user and User.check_password(user['password'], password):
-            login_user(user)
-            return render_template("user.html")
+        login_user(user)
+        return render_template('user.html')
     else:
-        flash("Invalid username or password")
+        return render_template('signup.html')
+
+@app.route('/Login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        render_template('login.html')
+        if current_user.is_authenticated:
+            email = ["email"]
+            password = ["password"]
+            user = mongo.db.Users.find_one({"email": email})
+            if user and User.check_password(user['password'], password):
+                login_user(user)
+                return render_template("user.html")
+            else:
+                flash("Invalid username or password")
+                return render_template("login.html")  
+    else:
         return render_template("login.html")
 
 @app.route('/logout')

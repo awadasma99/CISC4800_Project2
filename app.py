@@ -7,8 +7,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, LoginManager, current_user, logout_user,login_required, login_user
 import requests
 import itertools
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, PasswordField
 from wtforms.validators import DataRequired
 
 app = Flask(__name__)
@@ -16,7 +14,7 @@ app.config["MONGO_URI"] = "mongodb://localhost:27017/myDatabase"
 mongo = PyMongo(app)
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 headers = {
-    'x-rapidapi-key': "8d518c5534mshba4a11ab4c1cb0ep1c69d1jsn4c0415dbddd7",
+    'x-rapidapi-key': "",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
@@ -51,25 +49,13 @@ class User:
             return None
         return User(name=usr["name"], email=usr["email"], password=usr["password"])
 
-class Login(FlaskForm):
-    email = StringField('email', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    login = SubmitField('Login')
-
-class Signup(FlaskForm):
-    name = StringField('email', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Signup')
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = Login()
     if current_user.is_authenticated:
-        return render_template("user.html")
-    if form.validate_on_submit():
-         user = mongo.db.Users.find_one({"email": form.email.data})
-         if user and User.check_password(user['Password'], form.password.data):
+        email = ["email"]
+        password = ["password"]
+        user = mongo.db.Users.find_one({"email": email})
+        if user and User.check_password(user['password'], password):
             login_user(user)
             return render_template("user.html")
     else:

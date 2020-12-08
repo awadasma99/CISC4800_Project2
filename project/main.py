@@ -8,13 +8,26 @@ main = Blueprint('main', __name__)
 
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 headers = {
-    'x-rapidapi-key': "",
+    'x-rapidapi-key': "8d518c5534mshba4a11ab4c1cb0ep1c69d1jsn4c0415dbddd7",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
+def filter_recipes(recipe): 
+    if not recipe["instructions"]: 
+        return False 
+    else:
+        return True
+
 @main.route('/')
 def index(): 
-    return render_template('index.html')
+    randomRecipes = "recipes/random"
+    querystring = {"number":"50"}
+    response = requests.request("GET", url + randomRecipes, headers=headers, params=querystring).json()
+
+    filtered_results = filter(filter_recipes, response['recipes'])
+    first_twelve = itertools.islice(filtered_results, 12)
+
+    return render_template('index.html', recipes=first_twelve)
 
 @main.route('/profile')
 @login_required
@@ -34,7 +47,7 @@ def recipes():
 
         query = {"query":request.args['recipe'],"number":"10","offset":"0","instructionsRequired":"true","addRecipeNutrition":"true","excludeIngredients":allergies,"diet":diet}
         response = requests.request("GET", url + findRecipes, headers=headers, params=query).json()
-        results = response['results']        
+        results = response['results']  
         return render_template('recipes.html', recipes=results)
 
 @main.route('/recipe')

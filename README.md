@@ -8,7 +8,7 @@ You should be given a message on terminal saying something along the lines of "r
 
 Note: you will also need an API key, which needs to be entered in the `main.py` file. 
 
-You're going to want to create a Python environment. You can do so by running the following: 
+You're going to want to create a Python environment. You can do so by running the following commands: 
 * `python3 -m venv auth`
 * `source auth/bin/activate`
 
@@ -28,6 +28,6 @@ Installation Details
 
 Make sure you have Python installed on your device, as well as the following libraries: 
 * `pip install flask flask-sqlalchemy flask-login`
-* `pip install requests`
+* `pip install requests` 
 
 ---------------------------------

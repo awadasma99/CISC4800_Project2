@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %} Homepage {% endblock %}
+
+{% block body %} 
+    <h1>recipe search</h1>
+    <form action="/recipes"> 
+        <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="recipe" aria-describedby="search-button" name="recipe" onkeyup="validate(this)">
+        <button id="search-button" type="submit" disabled>search</button> <br>
+        
+        <!-- <button id="filter-button" type="button">filter</button> -->
+
+        allergies: <input type="text" placeholder="allergies (e.g. peanuts, almonds)" name="allergies"> <br>
+        
+        <label for="diet">diet options:</label>
+        <select id="diet" name="diet">
+            <option value="">-</option>
+            <option value="vegetarian">vegetarian</option>
+            <option value="lacto-vegetarian">lacto-vegetarian</option>
+            <option value="ovo-vegetarian">ovo-vegetarian</option>
+            <option value="vegan">vegan</option>
+            <option value="gluten free">gluten free</option>
+            <option value="ketogenic">ketogenic</option>
+            <option value="pescetarian">pescetarian</option>
+            <option value="paleo">paleo</option>
+            <option value="primal">primal</option>
+            <option value="whole30">whole30</option>
+        </select>
+    </form>
+
+    <h2> Popular Recipes </h2>
+        <div class="newRow">
+            <div class="col-1-3 specials">
+                <img src="#" alt="" />
+                <h1>Pizza</h1>
+                <p>description</p>
+            </div>
+
+            <div class="col-1-3 specials">
+                <img src="#" alt="" />
+                <h1>Steak</h1>
+                <p>description....</p>
+            </div>
+
+            <div class="col-1-3 specials">
+                <img src="#" alt="" />
+                <h1>Burger</h1>
+                <p>description</p>
+            </div> 
+        </div>
+
+    <h1>random recipes</h1>
+    <ul>
+        {% for recipe in recipes %}
+            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="20%" height="20%">
+            <li>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <script>
+        function validate(input) {
+            const button = document.getElementById('search-button'); 
+            if (input.value != "") {
+                button.disabled = false;
+            } else {
+                button.disabled = true; 
+            }
+        }
+    </script>
+{% endblock %}

@@ -64,12 +64,12 @@ body {
 /* styling recipe page */
 .column {
     float: left;
-    padding: 30px;
+    padding: 40px;
   }
-.left {
+.column.left {
     width: 30%;
 } 
-.right {
+.column.right {
     width: 70%;
 }
 .row:after {

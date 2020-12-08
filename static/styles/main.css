@@ -9,6 +9,7 @@ body {
     background-color: #38D4DE;
     position: fixed;
     top: 0;
+    height: 100px;
     width: 100%
 }
 .navbar a {
@@ -17,6 +18,7 @@ body {
     color: black;
     text-align: center;
     padding: 14px 16px;
+    width: 20%;
     text-decoration: none;
 }
 .dropdown { 

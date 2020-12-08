@@ -3,17 +3,17 @@
 {% block title %} {{recipe['title']}} {% endblock %}
 
 {% block body %}
-<img src="{{recipe['image']}}" alt="..." width="20%" height="20%">
-<center><h3>{{recipe['title']}}</h3></center>
+<center>
+    <img src="{{recipe['image']}}" alt="..." width="50%" height="100%">
+    <h3>{{recipe['title']}}</h3>
+</center>
 
 <div class="row">
     <div class="column left">
-        <p><h5> Time to Cook: </h5>
-            <br>{{recipe['readyInMinutes']}} minutes
+        <p><h4> Time to Cook: </h4>
+            {{recipe['readyInMinutes']}} minutes
         </p>
-
-        <p><h5> Ingredients </h5>
-            <br>
+        <p><h4> Ingredients </h4>
             <ul>
                 {% for ingredient in recipe['extendedIngredients'] %}
                     <li>{{ingredient['name']}}</li>
@@ -21,11 +21,11 @@
             </ul>
         </p>
 
-        <p><h5> Servings: </h5>
-            <br>{{recipe['servings']}}
+        <p><h4> Servings: </h4>
+            {{recipe['servings']}}
         </p>
 
-        <h5>Nutrition Info</h5>
+        <h4>Nutrition Info</h4>
         <p>
             Calories: {{nutrition[0]['amount']}} {{nutrition[0]['unit']}}<br>
             Fat: {{nutrition[1]['amount']}} {{nutrition[1]['unit']}}<br>
@@ -38,7 +38,7 @@
     </div>
 
     <div class="column right">
-        <p> Instructions <br>
+        <p> <h4>Instructions </h4>
             <ol>
                 {% for object in instructions %}
                     {% for step in object['steps'] %}
@@ -51,7 +51,7 @@
 
 </div>
 
-<h5>Extra Info</h5>
+<h4>Extra Info</h4>
 <p>
     Diet(s): 
     {% if recipe['diets'] %} 

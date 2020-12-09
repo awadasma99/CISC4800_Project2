@@ -6,9 +6,11 @@ Run the app by running `flask run` in the command line. Ensure that you're in th
 * `export FLASK_APP=project`
 * `export FLASK_DEBUG=1`
 
-You should be given a message on terminal saying something along the lines of "running on server http://127.0.0.1:5000/". Take that link and paste it into your browser, and you should be met with the search page.
+When you run `flask run` again, you should be given a message on terminal saying something along the lines of "running on server http://127.0.0.1:5000/". Take that link and paste it into your browser, and you should be met with the search page.
 
-Note: you will also need an API key, which needs to be entered in the `main.py` file. 
+Note: you will also need an API key, which needs to be entered in the `main.py` file.
+
+________________
 
 Before you make changes to any python files, you're going to want to create a Python environment. You can do so by running the following commands: 
 * `python3 -m venv auth`

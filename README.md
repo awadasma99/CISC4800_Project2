@@ -1,32 +1,42 @@
-# CISC 4800 - Project2
+# CISC 4800 - Project 2
 
-To run this, make sure you have everything installed (details below). 
+## Instructions
 
-Run the app by running `flask run` in the command line. Ensure that you're in the `project` folder. You may get an error related to env variables, which you can set by running the following: 
-* `export FLASK_APP=project`
-* `export FLASK_DEBUG=1`
+### Python 
+* Make sure you have python installed. Run `python -V` to check the version.
 
-When you run `flask run` again, you should be given a message on terminal saying something along the lines of "running on server http://127.0.0.1:5000/". Take that link and paste it into your browser, and you should be met with the search page.
+### Python Environment 
+* Navigate to CISC4800_Project2
+* On Mac, run the following commands: 
+    * `python3 -m venv auth`
+    * `source auth/bin/activate` 
+* On Windows, I think this should work: 
+    * `python3 -m venv auth` 
+    * `auth\Scripts\activate`
 
-Note: you will also need an API key, which needs to be entered in the `main.py` file.
+* You should now see (auth) near your computer name.
+* Resource for setting up venv on different OS: https://www.digitalocean.com/community/tutorial_series/how-to-install-and-set-up-a-local-programming-environment-for-python-3
 
-________________
+### Installing Packages 
+* Now, run the following:
+    * `pip install flask flask-sqlalchemy flask-login`
+    * `pip install requests`
 
-Before you make changes to any python files, you're going to want to create a Python environment. You can do so by running the following commands: 
-* `python3 -m venv auth`
-* `source auth/bin/activate`
+### Set the Environment Variables
+* On Mac, run the following: 
+    * `export FLASK_APP=project`
+    * `export FLASK_DEBUG=1`
+* On Windows: 
+    * set FLASK_APP=project
+    * set FLASK_DEBUG=1
 
-You may also have to configure the database. You can do this by opening up a Python REPL (run `python` in your command line, and it should open up). From there, enter the following: 
-* `from project import db, create_app`
-* `db.create_all(app=create_app())`
+### Run the app	
+* From CISC4800_Project2, you should be able to run the command:
+    * `flask run`
 
-Exit the REPL using Command + D. 
+### Configuring the database
+* If a change is made to the database (i.e. adding a column), enter a Python REPL by typing `python`
 
-Installation Details
-----------------------------------
-
-Make sure you have Python installed on your device, as well as the following libraries: 
-* `pip install flask flask-sqlalchemy flask-login`
-* `pip install requests` 
-
----------------------------------
+* Then, run the following commands. Make sure you’re in CISC4800_Project2:
+    * `from project import db, create_app, models`
+    * `db.create_all(app=create_app())`

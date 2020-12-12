@@ -27,8 +27,8 @@
     * `export FLASK_APP=project`
     * `export FLASK_DEBUG=1`
 * On Windows: 
-    * set FLASK_APP=project
-    * set FLASK_DEBUG=1
+    * `set FLASK_APP=project`
+    * `set FLASK_DEBUG=1`
 
 ### Run the app	
 * From CISC4800_Project2, you should be able to run the command:

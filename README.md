@@ -14,7 +14,7 @@
     * `python3 -m venv auth` 
     * `auth\Scripts\activate`
 
-* You should now see (auth) near your computer name.
+* You should now see (auth) near your computer name. This creates an auth folder which holds all required libraries for your project. (Don't push it to GitHub!) 
 * Resource for setting up venv on different OS: https://www.digitalocean.com/community/tutorial_series/how-to-install-and-set-up-a-local-programming-environment-for-python-3
 
 ### Installing Packages 

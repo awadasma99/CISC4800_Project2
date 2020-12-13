@@ -3,29 +3,20 @@
 {% block title %} {{recipe['title']}} {% endblock %}
 
 {% block body %}
-<center>
-    <img src="{{recipe['image']}}" alt="..." width="50%" height="100%">
-    <h3>{{recipe['title']}}</h3>
-</center>
 
 <div class="row">
     <div class="column left">
-        <p><h4> Time to Cook: </h4>
-            {{recipe['readyInMinutes']}} minutes
-        </p>
-        <p><h4> Ingredients </h4>
+        <img src="{{recipe['image']}}" alt="..." width="100%" height="100%"><br><br>
+        
+        <p><h3> Ingredients </h3>
             <ul>
                 {% for ingredient in recipe['extendedIngredients'] %}
-                    <li>{{ingredient['name']}}</li>
+                    <li>{{ingredient['name']}}</li><br>
                 {% endfor %}
             </ul>
-        </p>
+        </p><br>
 
-        <p><h4> Servings: </h4>
-            {{recipe['servings']}}
-        </p>
-
-        <h4>Nutrition Info</h4>
+        <h3>Nutrition Info</h3>
         <p>
             Calories: {{nutrition[0]['amount']}} {{nutrition[0]['unit']}}<br>
             Fat: {{nutrition[1]['amount']}} {{nutrition[1]['unit']}}<br>
@@ -34,48 +25,54 @@
             Sugar: {{nutrition[5]['amount']}} {{nutrition[5]['unit']}}<br>
             Cholesterol: {{nutrition[6]['amount']}} {{nutrition[6]['unit']}}<br>
             Protein: {{nutrition[8]['amount']}} {{nutrition[8]['unit']}}<br>
+        </p><br>
+
+        <h3>Extra Info</h3>
+        <p>
+            Diet(s): 
+            {% if recipe['diets'] %} 
+                {{recipe['diets']}} <br>
+            {% else %}
+                None <br>
+            {% endif %}<br>
+
+            Cuisine: 
+            {% if recipe['cuisines'] %} 
+                {{recipe['cuisines']}} <br>
+            {% else %}
+                None <br>
+            {% endif %}    
         </p>
     </div>
 
     <div class="column right">
-        <p> <h4>Instructions </h4>
+        <h1>{{recipe['title']}}</h1><br>
+
+        <h3> Time to Cook: </h3>
+        <p>{{recipe['readyInMinutes']}} minutes</p>
+
+        <h3> Servings: </h3>
+        <p>{{recipe['servings']}}</p><br>
+            
+        <p> <h3>Instructions </h3>
             <ol>
                 {% for object in instructions %}
                     {% for step in object['steps'] %}
-                        <li>{{step['step']}}</li>
+                        <li>{{step['step']}}</li><br><br>
                     {% endfor %}
                 {% endfor %}
             </ol>
         </p>
     </div>
-
 </div>
-
-<h4>Extra Info</h4>
-<p>
-    Diet(s): 
-    {% if recipe['diets'] %} 
-        {{recipe['diets']}} <br>
-    {% else %}
-        None <br>
-    {% endif %}
-
-    Cuisine: 
-    {% if recipe['cuisines'] %} 
-        {{recipe['cuisines']}} <br>
-    {% else %}
-        None <br>
-    {% endif %}    
-</p>
 
 <h2>Similar Recipes</h2>
 <p>
-    {% for recipe in similarRecipes[0:4] %}
-        <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="20%" height="20%">
-        <li>
-            <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a>
-        </li>
+    {% for recipe in similarRecipes [0:4]%}
+    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="20%" height="20%">
+    <br><a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
     {% endfor %}
 </p>
+
 
 {% endblock %}

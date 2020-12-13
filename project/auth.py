@@ -14,11 +14,6 @@ def login():
 def signup():
     return render_template('signup.html')
 
-@auth.route('/editprofile')
-@login_required
-def edit_profile():
-    return render_template('editprofile.html')
-
 @auth.route('/logout')
 @login_required
 def logout():

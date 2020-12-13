@@ -45,10 +45,16 @@ def edit_profile():
     if form.validate_on_submit():
         current_user.name = form.name.data
         current_user.email = form.email.data
-        current_user.password = generate_password_hash(form.password.data, method='sha256')
-        db.session.commit()
-        flash('Your changes have been saved.')
-        return redirect(url_for('main.profile'))
+
+        if not check_password_hash(current_user.password, form.old_password.data):
+            flash('Incorrect Password: Please try again.')
+            return render_template('editprofile.html', title='Edit Profile', form=form)
+        else:
+            current_user.password = generate_password_hash(form.new_password.data, method='sha256')
+            db.session.commit()
+            flash('Your changes have been saved.')
+            return redirect(url_for('main.profile'))
+
     elif request.method == 'GET':
         form.email.data = current_user.email
         form.name.data = current_user.name

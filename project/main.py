@@ -1,8 +1,11 @@
-from flask import Blueprint, render_template, request
+from flask import Blueprint, render_template, request, session, flash, redirect, url_for
+from flask_wtf import FlaskForm
 from flask_login import login_required, current_user 
 from . import db
+from .forms import EditProfileForm
 import requests
 import itertools
+from werkzeug.security import generate_password_hash, check_password_hash
 
 main = Blueprint('main', __name__)
 
@@ -32,7 +35,26 @@ def index():
 @main.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name)
+    user = current_user.name
+    return render_template('profile.html', user=user)
+
+@main.route('/edit_profile', methods=['GET', 'POST'])
+@login_required
+def edit_profile():
+    form = EditProfileForm()
+    if form.validate_on_submit():
+        current_user.name = form.name.data
+        current_user.email = form.email.data
+        current_user.password = generate_password_hash(form.password.data, method='sha256')
+        db.session.commit()
+        flash('Your changes have been saved.')
+        return redirect(url_for('main.profile'))
+    elif request.method == 'GET':
+        flash('hello')
+        form.email.data = current_user.email
+        form.name.data = current_user.name
+        db.session.commit()
+    return render_template('editprofile.html', title='Edit Profile', form=form)
 
 @main.route('/recipes') 
 def recipes():

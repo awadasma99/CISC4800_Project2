@@ -14,6 +14,11 @@ def login():
 def signup():
     return render_template('signup.html')
 
+@auth.route('/editprofile')
+@login_required
+def edit_profile():
+    return render_template('editprofile.html')
+
 @auth.route('/logout')
 @login_required
 def logout():
@@ -58,3 +63,4 @@ def login_post():
     # this goes through if the user exists + password was right
     login_user(user, remember=remember)
     return redirect(url_for('main.profile'))
+    

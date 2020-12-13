@@ -29,12 +29,37 @@
     </form>
 
     <h2> Popular Recipes </h2>
+    <div class="row">
+        <div class="col-med-4">
+            {% for recipe in recipes %}
+            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="10%" height="10%"><br>
+            <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            {% endfor %}
+        </div>
+        <div class="col-med-4">
+            {% for recipe in recipes %}
+            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="10%" height="10%"><br>
+            <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            {% endfor %}
+        </div>
+        <div class="col-med-4">
+            {% for recipe in recipes %}
+            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="10%" height="10%"><br>
+            <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            {% endfor %}
+        </div>
+        <div class="col-med-4">
+            {% for recipe in recipes %}
+            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="10%" height="10%"><br>
+            <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            {% endfor %}
+        </div>
+    </div>
+    
     <ul>
         {% for recipe in recipes %}
-            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="20%" height="20%">
-            <li>
+            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="10%" height="10%">
                 <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a>
-            </li>
         {% endfor %}
     </ul>
 

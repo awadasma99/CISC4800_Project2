@@ -21,6 +21,7 @@
 * Now, run the following:
     * `pip install flask flask-sqlalchemy flask-login`
     * `pip install requests`
+    * `pip install flask-wtf`
 
 ### Set the Environment Variables
 * On Mac, run the following: 

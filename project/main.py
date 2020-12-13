@@ -25,7 +25,7 @@ def index():
     response = requests.request("GET", url + randomRecipes, headers=headers, params=querystring).json()
 
     filtered_results = filter(filter_recipes, response['recipes'])
-    first_twelve = itertools.islice(filtered_results, 12)
+    first_twelve = itertools.islice(filtered_results, 3)
 
     return render_template('index.html', recipes=first_twelve)
 

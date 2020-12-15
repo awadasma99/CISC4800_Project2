@@ -64,6 +64,7 @@ def edit_profile():
 @main.route('/recipes') 
 def recipes():
     findRecipes = "recipes/complexSearch"
+
     if (str(request.args['recipe']).strip() != ""):
         allergies = request.args['allergies']
 
@@ -74,8 +75,18 @@ def recipes():
 
         query = {"query":request.args['recipe'],"number":"10","offset":"0","instructionsRequired":"true","addRecipeNutrition":"true","excludeIngredients":allergies,"diet":diet}
         response = requests.request("GET", url + findRecipes, headers=headers, params=query).json()
-        results = response['results']  
-        return render_template('recipes.html', recipes=results)
+        results = response['results']
+
+        # find summaries 
+        summaries = [] 
+        for result in results: 
+            recipe_id = result['id']
+            getSummaries = "recipes/{0}/summary".format(recipe_id)
+            
+            summary = requests.request("GET", url + getSummaries, headers=headers).json()
+            summaries.append(summary['summary']) 
+
+        return render_template('recipes.html', recipes=results, summaries=summaries)
 
 @main.route('/recipe')
 def recipe():

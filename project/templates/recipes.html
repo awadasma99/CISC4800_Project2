@@ -10,6 +10,7 @@
         <li>
             <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a>
         </li>
+        <p>{{summaries[loop.index - 1] | safe}}</p>
     {% endfor %}
 </ul>
 {% endblock %}

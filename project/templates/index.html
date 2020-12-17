@@ -3,39 +3,40 @@
 {% block title %} Homepage {% endblock %}
 
 {% block body %} 
-    <h1>recipe search</h1>
-    <form action="/recipes"> 
-        <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="recipe" aria-describedby="search-button" name="recipe" onkeyup="validate(this)">
-        <button id="search-button" type="submit" disabled>search</button> <br>
-        
-        <!-- <button id="filter-button" type="button">filter</button> -->
+    <div class="container">
+        <h1>recipe search</h1>
+        <form action="/recipes"> 
+            <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="recipe" aria-describedby="search-button" name="recipe" onkeyup="validate(this)">
+            <button id="search-button" type="submit" disabled>search</button> <br>
+            
+            allergies: <input type="text" placeholder="allergies (e.g. peanuts, almonds)" name="allergies"> <br>
+            
+            <label for="diet">diet options:</label>
+            <select id="diet" name="diet">
+                <option value="">-</option>
+                <option value="vegetarian">vegetarian</option>
+                <option value="lacto-vegetarian">lacto-vegetarian</option>
+                <option value="ovo-vegetarian">ovo-vegetarian</option>
+                <option value="vegan">vegan</option>
+                <option value="gluten free">gluten free</option>
+                <option value="ketogenic">ketogenic</option>
+                <option value="pescetarian">pescetarian</option>
+                <option value="paleo">paleo</option>
+                <option value="primal">primal</option>
+                <option value="whole30">whole30</option>
+            </select>
+        </form>
 
-        allergies: <input type="text" placeholder="allergies (e.g. peanuts, almonds)" name="allergies"> <br>
-        
-        <label for="diet">diet options:</label>
-        <select id="diet" name="diet">
-            <option value="">-</option>
-            <option value="vegetarian">vegetarian</option>
-            <option value="lacto-vegetarian">lacto-vegetarian</option>
-            <option value="ovo-vegetarian">ovo-vegetarian</option>
-            <option value="vegan">vegan</option>
-            <option value="gluten free">gluten free</option>
-            <option value="ketogenic">ketogenic</option>
-            <option value="pescetarian">pescetarian</option>
-            <option value="paleo">paleo</option>
-            <option value="primal">primal</option>
-            <option value="whole30">whole30</option>
-        </select>
-    </form>
-
-    <h2> Popular Recipes </h2>
-    <div class="row">
-        <div class="col-med-4">
-            {% for recipe in recipes %}
-            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="10%" height="10%"><br>
-            <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+        <h2> Popular Recipes </h2>
+        <div class="row">
+            {% for recipe in recipes[0:4] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="50%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
             {% endfor %}
         </div>
+<<<<<<< HEAD
     </div>
     <div class="row">
         <div class="col-med-4">
@@ -50,17 +51,37 @@
             {% for recipe in recipes %}
             <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="10%" height="10%"><br>
             <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+=======
+
+        <div class="row">
+            {% for recipe in recipes[4:8] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="50%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            {% for recipe in recipes[8:12] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="50%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            {% for recipe in recipes[12:16] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="50%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
+>>>>>>> 2afc2104f0fe35ec6daaf54caac63a69f6b46f8a
             {% endfor %}
         </div>
     </div>
     
-    <ul>
-        {% for recipe in recipes %}
-            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="10%" height="10%">
-                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a>
-        {% endfor %}
-    </ul>
-
     <script>
         function validate(input) {
             const button = document.getElementById('search-button'); 
@@ -71,4 +92,5 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 {% endblock %}

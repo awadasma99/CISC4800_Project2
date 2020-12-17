@@ -11,7 +11,7 @@ main = Blueprint('main', __name__)
 
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 headers = {
-    'x-rapidapi-key': "API-KEY",
+    'x-rapidapi-key': "8d518c5534mshba4a11ab4c1cb0ep1c69d1jsn4c0415dbddd7",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
@@ -24,14 +24,23 @@ def filter_recipes(recipe):
 @main.route('/')
 def index(): 
     randomRecipes = "recipes/random"
-    querystring = {"number":"50"}
+    querystring = {"number":"32"}
+    vegetarian_querystring = {"number":"32","tags":"vegetarian"}
+    vegan_querystring = {"number":"32","tags":"vegan"}
+
     response = requests.request("GET", url + randomRecipes, headers=headers, params=querystring).json()
+    vegetarian_response = requests.request("GET", url + randomRecipes, headers=headers, params=vegetarian_querystring).json()
+    vegan_response = requests.request("GET", url + randomRecipes, headers=headers, params=vegan_querystring).json()
 
     filtered_results = filter(filter_recipes, response['recipes'])
-    # first_sixteen = itertools.islice(filtered_results, 16)
-    first_sixteen = list(filtered_results)
+    filtered_vegetarian_results = filter(filter_recipes, vegetarian_response['recipes'])
+    filtered_vegan_results = filter(filter_recipes, vegan_response['recipes'])
 
-    return render_template('index.html', recipes=first_sixteen[0:16])
+    first_sixteen = list(filtered_results)
+    first_sixteen_vegetarian = list(filtered_vegetarian_results)
+    first_sixteen_vegan = list(filtered_vegan_results)
+
+    return render_template('index.html', recipes=first_sixteen[0:16], vegetarian_recipes=first_sixteen_vegetarian[0:16], vegan_recipes=first_sixteen_vegan)
 
 @main.route('/profile')
 @login_required

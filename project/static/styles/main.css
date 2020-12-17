@@ -47,10 +47,10 @@ input[type=email], input[type=password] {
     padding-top: 5%;
     padding-left: 5%;
 }
-.column.left {
+.column .left {
     width: 20%;
 }
-.column.right {
+.column .right {
     width: 70%;
 }
 .row:after {

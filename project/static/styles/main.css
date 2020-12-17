@@ -30,7 +30,7 @@ body {
 /* styling login/Signup Page*/
 .container {
     padding: 20px;
-    background-color:C4C4C4;
+    background-color: #C4C4C4;
 }
 input[type=email], input[type=password] {
     width: 50%;
@@ -59,5 +59,3 @@ input[type=email], input[type=password] {
     display: table;
     clear: both;
 }
-
-  

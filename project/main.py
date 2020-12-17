@@ -11,7 +11,7 @@ main = Blueprint('main', __name__)
 
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 headers = {
-    'x-rapidapi-key': "KEY",
+    'x-rapidapi-key': "API-KEY",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
@@ -28,9 +28,10 @@ def index():
     response = requests.request("GET", url + randomRecipes, headers=headers, params=querystring).json()
 
     filtered_results = filter(filter_recipes, response['recipes'])
-    first_twelve = itertools.islice(filtered_results, 3)
+    # first_sixteen = itertools.islice(filtered_results, 16)
+    first_sixteen = list(filtered_results)
 
-    return render_template('index.html', recipes=first_twelve)
+    return render_template('index.html', recipes=first_sixteen[0:16])
 
 @main.route('/profile')
 @login_required

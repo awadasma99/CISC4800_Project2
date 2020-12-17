@@ -3,7 +3,6 @@
 {% block title %} Homepage {% endblock %}
 
 {% block body %} 
-    <div class="container">
         <h1>recipe search</h1>
         <form action="/recipes"> 
             <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="recipe" aria-describedby="search-button" name="recipe" onkeyup="validate(this)">
@@ -36,22 +35,6 @@
             </div>
             {% endfor %}
         </div>
-<<<<<<< HEAD
-    </div>
-    <div class="row">
-        <div class="col-med-4">
-            {% for recipe in recipes %}
-            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="10%" height="10%"><br>
-            <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-            {% endfor %}
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-med-4">
-            {% for recipe in recipes %}
-            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="10%" height="10%"><br>
-            <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-=======
 
         <div class="row">
             {% for recipe in recipes[4:8] %}
@@ -77,10 +60,8 @@
                 <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="50%"><br>
                 <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
             </div>
->>>>>>> 2afc2104f0fe35ec6daaf54caac63a69f6b46f8a
             {% endfor %}
         </div>
-    </div>
     
     <script>
         function validate(input) {
@@ -92,5 +73,4 @@
             }
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 {% endblock %}

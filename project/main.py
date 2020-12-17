@@ -11,7 +11,7 @@ main = Blueprint('main', __name__)
 
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 headers = {
-    'x-rapidapi-key': "KEY",
+    'x-rapidapi-key': "API-KEY",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 

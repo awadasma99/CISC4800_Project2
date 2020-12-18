@@ -16,12 +16,13 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    </head>
+    </head><br><br><br>
 
     <body>
         <header>
             <div class="nav">
                 <!-- <img class="logo" src="#" alt="logo"> -->
+                <a href="{{ url_for('main.index') }}">LOGO</a>
                 <a href="{{ url_for('main.index') }}">Home</a>
                 
                 {% if current_user.is_authenticated %}

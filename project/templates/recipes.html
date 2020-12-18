@@ -1,16 +1,14 @@
 {% extends 'base.html' %}
 {% block title %} results {% endblock %}
-
 {% block body %}
 <h2> Recipes </h2>
-<ul>
-    <div class="list"></div>
-    {% for recipe in recipes %}
-        <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="20%" height="20%">
-        <li>
-            <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a>
-        </li>
-        <p>{{summaries[loop.index - 1] | safe}}</p>
-    {% endfor %}
-</ul>
-{% endblock %}
+
+<div class="row">
+    <div class="col-sm-8">{% for recipe in recipes %}<p>{{summaries[loop.index - 1] | safe}}</p></div>
+       
+    <div class="col-sm-4"><img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="40%" height="40%"></div>
+</div>
+
+      {% endfor %}
+      
+{% endblock %}  

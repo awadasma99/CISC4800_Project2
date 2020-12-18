@@ -28,46 +28,27 @@ body {
 }
 
 /* styling login/Signup Page*/
-.logsign form {
-	border: 3px solid #f1f1f1;
-    background-color:#C4C4C4;
-    width: 50%;
-    margin:auto;
-}
 .containerlog {
-    padding: 90px 90px;
+    padding: 20px;
+    background-color: #C4C4C4;
 }
-input[type=email], input[type=password], input[type=name] {
-    width: 100%;
+input[type=email], input[type=password] {
+    width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-.logsignbtn button {
-    background-color: #57616b;
-    color: white;
-    padding: 14px 20px;
-    margin-left: 40%;
-    border: none;
-    cursor: pointer;
-}
-button:hover {
-opacity: 0.8;
-}
-
-/* Add padding to containers */
-.container {
-    padding: 16px;
-}
 
 /* styling recipe page */
+/* Create unequal columns that floats next to each other */
 .column {
     float: left;
     padding-top: 5%;
     padding-left: 5%;
 }
+
 .column.left {
     width: 30%;
 }

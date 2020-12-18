@@ -66,12 +66,12 @@
     </div>
 </div>
 
-<br><center><h2>Related Recipes</h2></center>
+<h2>Similar Recipes</h2>
 <div class="row">
     <p>
         {% for recipe in similarRecipes [0:4]%}
         <div class="col-3">
-            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="90%">
+            <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="50%">
             <br><a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
         </div>
         {% endfor %}

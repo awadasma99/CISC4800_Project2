@@ -1,7 +1,8 @@
 body {
-    font-family:'Courier New', Courier, monospace;
+    font-family: 'Castoro', serif;
     margin:0px;
     background-color: #f8f8ff;
+    font-size: 18px;
 }
 
 /* styling navbar*/
@@ -13,7 +14,7 @@ body {
     top: 0;
 }
 .nav a {
-    font-family: 'Montserrat';
+    font-family:'Courier New', Courier, monospace;
     float: left;
     font-size: 17px;
     color: black;
@@ -48,7 +49,7 @@ input[type=email], input[type=password] {
     padding-left: 5%;
 }
 .column.left {
-    width: 20%;
+    width: 30%;
 }
 .column.right {
     width: 70%;

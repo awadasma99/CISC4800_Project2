@@ -16,7 +16,7 @@ body {
 .nav a {
     font-family:'Courier New', Courier, monospace;
     float: right;
-    font-size: 20px;
+    font-size: 22px;
     color: black;
     text-align: center;
     padding: 14px 16px;
@@ -48,6 +48,7 @@ input[type=email], input[type=password] {
     padding-top: 5%;
     padding-left: 5%;
 }
+
 .column.left {
     width: 30%;
 }

@@ -2,7 +2,8 @@
 
 {% block title %} Homepage {% endblock %}
 
-{% block body %} 
+{% block body %}
+    <center>
         <h1>recipe search</h1>
         <form action="/recipes"> 
             <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="recipe" aria-describedby="search-button" name="recipe" onkeyup="validate(this)">
@@ -25,131 +26,132 @@
                 <option value="whole30">whole30</option>
             </select>
         </form>
+    </center>
+
+    <div class="row">
+        <div class="col-10"><h2> Popular Recipes </h2></div>
+        <div class="col-2">
+            <button id="vegetarian-filter">vegetarian</button>
+            <button id="vegan-filter">vegan</button>
+        </div>
+    </div>
+    
+    <!-- recipes with no diet restriction -->
+    <div id="regular-recipes">
+        <div class="row">
+            {% for recipe in recipes[0:4] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
+            {% endfor %}
+        </div>
 
         <div class="row">
-            <div class="col-9"><h2> Popular Recipes </h2></div>
+            {% for recipe in recipes[4:8] %}
             <div class="col-3">
-                <button id="vegetarian-filter">vegetarian</button>
-                <button id="vegan-filter">vegan</button>
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
             </div>
-        </div>
-        
-        <!-- recipes with no diet restriction -->
-        <div id="regular-recipes">
-            <div class="row">
-                {% for recipe in recipes[0:4] %}
-                <div class="col-3">
-                    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
-                    <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-                </div>
-                {% endfor %}
-            </div>
-
-            <div class="row">
-                {% for recipe in recipes[4:8] %}
-                <div class="col-3">
-                    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
-                    <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-                </div>
-                {% endfor %}
-            </div>
-
-            <div class="row">
-                {% for recipe in recipes[8:12] %}
-                <div class="col-3">
-                    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
-                    <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-                </div>
-                {% endfor %}
-            </div>
-
-            <div class="row">
-                {% for recipe in recipes[12:16] %}
-                <div class="col-3">
-                    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
-                    <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-                </div>
-                {% endfor %}
-            </div>
+            {% endfor %}
         </div>
 
-        <!-- vegetarian -->
-        <div id="vegetarian-recipes">
-            <div class="row">
-                {% for recipe in vegetarian_recipes[0:4] %}
-                <div class="col-3">
-                    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
-                    <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-                </div>
-                {% endfor %}
+        <div class="row">
+            {% for recipe in recipes[8:12] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
             </div>
-
-            <div class="row">
-                {% for recipe in vegetarian_recipes[4:8] %}
-                <div class="col-3">
-                    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
-                    <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-                </div>
-                {% endfor %}
-            </div>
-
-            <div class="row">
-                {% for recipe in vegetarian_recipes[8:12] %}
-                <div class="col-3">
-                    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
-                    <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-                </div>
-                {% endfor %}
-            </div>
-
-            <div class="row">
-                {% for recipe in vegetarian_recipes[12:16] %}
-                <div class="col-3">
-                    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
-                    <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-                </div>
-                {% endfor %}
-            </div>
+            {% endfor %}
         </div>
 
-        <!-- vegan recipes -->
-        <div id="vegan-recipes">
-            <div class="row">
-                {% for recipe in vegan_recipes[0:4] %}
-                <div class="col-3">
-                    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
-                    <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-                </div>
-                {% endfor %}
+        <div class="row">
+            {% for recipe in recipes[12:16] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
             </div>
-
-            <div class="row">
-                {% for recipe in vegan_recipes[4:8] %}
-                <div class="col-3">
-                    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
-                    <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-                </div>
-                {% endfor %}
-            </div>
-
-            <div class="row">
-                {% for recipe in vegan_recipes[8:12] %}
-                <div class="col-3">
-                    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
-                    <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-                </div>
-                {% endfor %}
-            </div>
-
-            <div class="row">
-                {% for recipe in vegan_recipes[12:16] %}
-                <div class="col-3">
-                    <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
-                    <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
-                </div>
-                {% endfor %}
-            </div>
+            {% endfor %}
         </div>
+    </div>
+
+    <!-- vegetarian -->
+    <div id="vegetarian-recipes">
+        <div class="row">
+            {% for recipe in vegetarian_recipes[0:4] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            {% for recipe in vegetarian_recipes[4:8] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            {% for recipe in vegetarian_recipes[8:12] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            {% for recipe in vegetarian_recipes[12:16] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- vegan recipes -->
+    <div id="vegan-recipes">
+        <div class="row">
+            {% for recipe in vegan_recipes[0:4] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            {% for recipe in vegan_recipes[4:8] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            {% for recipe in vegan_recipes[8:12] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            {% for recipe in vegan_recipes[12:16] %}
+            <div class="col-3">
+                <img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="100%"><br>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a><br>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 
     <script>
         function validate(input) {
@@ -173,4 +175,5 @@
             $( "#vegetarian-recipes" ).hide();
         });
     </script>
+    
 {% endblock %}

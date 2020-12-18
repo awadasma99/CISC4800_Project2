@@ -5,7 +5,7 @@ from . import db
 
 
 class EditProfileForm(FlaskForm):
-    name = TextAreaField('name', validators=[DataRequired()])
+    name = StringField('name', validators=[DataRequired()])
     email = StringField('email', validators=[DataRequired()])
     old_password = StringField('old password', validators=[DataRequired()])
     new_password = StringField('new password', validators=[DataRequired()])

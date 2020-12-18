@@ -28,7 +28,7 @@ body {
 }
 
 /* styling login/Signup Page*/
-form {
+.logsign form {
 	border: 3px solid #f1f1f1;
     background-color:#C4C4C4;
     width: 50%;
@@ -37,7 +37,7 @@ form {
 .containerlog {
     padding: 90px 90px;
 }
-input[type=email], input[type=password], input[type=text] {
+input[type=email], input[type=password], input[type=name] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -45,7 +45,7 @@ input[type=email], input[type=password], input[type=text] {
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
-button {
+.logsignbtn button {
     background-color: #57616b;
     color: white;
     padding: 14px 20px;

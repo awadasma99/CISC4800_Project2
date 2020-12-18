@@ -63,13 +63,11 @@ opacity: 0.8;
 }
 
 /* styling recipe page */
-/* Create unequal columns that floats next to each other */
 .column {
     float: left;
     padding-top: 5%;
     padding-left: 5%;
 }
-
 .column.left {
     width: 30%;
 }

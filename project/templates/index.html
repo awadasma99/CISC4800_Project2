@@ -3,6 +3,7 @@
 {% block title %} Homepage {% endblock %}
 
 {% block body %}
+
     <center>
         <h1>recipe search</h1>
         <form action="/recipes"> 
@@ -27,6 +28,9 @@
             </select>
         </form>
     </center>
+
+    <img src="{{url_for('static', filename='images/bigStockPhoto.png')}}" width="100%">
+
 
     <div class="row">
         <div class="col-10"><h2> Popular Recipes </h2></div>

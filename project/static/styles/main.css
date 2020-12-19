@@ -1,16 +1,48 @@
 body {
     font-family: 'helvetica';
     margin:0px;
-    background-color: #f8f8ff;
+    background-color: antiquewhite;
     font-size: 15px;
     text-align: center;
 }
 
-/* styling navbar*/
-.logoimg {
-    padding: 20px 30px;
+h5{
+    text-align:left;
+    font-size:50px;
+    font-family:monospace
 }
+
+.row{
+    padding-top: 50px;
+ }
+ 
+ .recipeList{
+     font-family: tahoma;
+     text-align: left;
+     font-size:15px;
+     line-height: 1.7;
+ }
+ 
+ .col-sm-9{
+     font-family: tahoma;
+     text-align: left;
+     font-size:15px;
+     padding-right:100px;
+     padding-bottom: 30px;
+ }
+ 
+ .col-sm-3{
+     padding-bottom:30px;
+ }
+/* styling navbar*/
+
+.logoimg {
+    padding: 18px;
+    width: 7%;  
+}
+
 .nav {
+    height:7%;
     width: 100%; 
     overflow: hidden;
     background-color:darksalmon;
@@ -20,7 +52,7 @@ body {
 .nav a {
     font-family:'helvetica';
     float: right;
-    font-size: 25px;
+    font-size: 17px;
     font-weight: bolder;
     color: white;
     padding: 25px;

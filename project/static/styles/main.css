@@ -1,5 +1,5 @@
 body {
-    font-family: 'Montserrat';
+    font-family: 'helvetica';
     margin:0px;
     background-color: #f8f8ff;
     font-size: 15px;
@@ -13,7 +13,7 @@ body {
 .nav {
     width: 100%; 
     overflow: hidden;
-    background-color: #38D4DE;
+    background-color:darksalmon;
     position: fixed;
     top: 0;
 }
@@ -22,7 +22,7 @@ body {
     float: right;
     font-size: 25px;
     font-weight: bolder;
-    color: darksalmon;
+    color: white;
     padding: 25px;
     width: 20%;
     text-decoration: none;

@@ -3,7 +3,6 @@ body {
     margin:0px;
     background-color:aliceblue;
     font-size: 15px;
-    text-align: center;
 }
 a:link {
     color: black;
@@ -111,7 +110,7 @@ button:hover {
 /* styling recipe page */
 .column {
     float: left;
-    padding-top: 5%;
+    padding-top: 2%;
     padding-left: 5%;
 }
 

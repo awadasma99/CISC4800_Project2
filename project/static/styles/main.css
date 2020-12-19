@@ -6,41 +6,11 @@ body {
     text-align: center;
 }
 
-h5{
-    text-align:left;
-    font-size:50px;
-    font-family:monospace
-}
-
-.row{
-    padding-top: 50px;
- }
- 
- .recipeList{
-     font-family: tahoma;
-     text-align: left;
-     font-size:15px;
-     line-height: 1.7;
- }
- 
- .col-sm-9{
-     font-family: tahoma;
-     text-align: left;
-     font-size:15px;
-     padding-right:100px;
-     padding-bottom: 30px;
- }
- 
- .col-sm-3{
-     padding-bottom:30px;
- }
 /* styling navbar*/
-
 .logoimg {
     padding: 18px;
     width: 7%;  
 }
-
 .nav {
     height:7%;
     width: 100%; 
@@ -63,6 +33,33 @@ h5{
     background-color: red;
 }
 
+/*Styling Recipe List Page*/
+h5 {
+    text-align:left;
+    font-size:50px;
+    font-family:monospace
+}
+.row {
+    padding-top: 50px;
+}
+
+.recipeList {
+    font-family: tahoma;
+    text-align: left;
+    font-size:15px;
+    line-height: 1.7;
+}
+.col-sm-9 {
+    font-family: tahoma;
+    text-align: left;
+    font-size:15px;
+    padding-right:100px;
+    padding-bottom: 30px;
+}
+.col-sm-3 {
+    padding-bottom:30px;
+}
+
 /* styling login/Signup Page*/
 .logsign form {
     border: 3px solid #f1f1f1;
@@ -70,7 +67,7 @@ h5{
     width: 50%;
     margin:auto;
 }
-.containerlog{
+.containerlog {
     padding: 20px 90px;
     background-color: #C4C4C4;
 }

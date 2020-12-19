@@ -26,6 +26,12 @@
                 </div>
                 <!-- <a href="{{ url_for('main.index') }}">LOGO</a> -->
                 <a href="{{ url_for('main.index') }}">Home</a>
+
+                <a href="{{ url_for('main.index') }}">Vegan</a>
+
+                <a href="{{ url_for('main.index') }}">Vegitarian</a>
+
+                <a href="{{ url_for('main.index') }}">Holiday Cuisine</a>
                 
                 {% if current_user.is_authenticated %}
                 <a href="{{ url_for('main.profile') }}">Profile</a>

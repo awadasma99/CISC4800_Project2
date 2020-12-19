@@ -1,26 +1,56 @@
 body {
     font-family: 'helvetica';
     margin:0px;
-    background-color:aliceblue;
+    background-color: antiquewhite;
     font-size: 15px;
 }
-a:link {
-    color: black;
-    background-color: transparent;
-    text-decoration: none;
-    font-weight: bold;
-}
-a:link:hover{
-    color: grey;
+
+.search{
+    text-align:right;
+    font-size:10px;
+    text-decoration:underline;
+    position:absolute;
+    padding-left:940px;
+    top:110px;
 }
 
+h5{
+    text-align:left;
+    font-size:50px;
+    font-family:monospace
+}
+
+.row{
+    padding-top: 100px;
+ }
+ 
+ .recipeList{
+     font-family: tahoma;
+     text-align: left;
+     font-size:15px;
+     line-height: 1.7;
+ }
+ 
+ .col-sm-9{
+     font-family: tahoma;
+     text-align: left;
+     font-size:15px;
+     padding-right:100px;
+     padding-bottom: 30px;
+ }
+ 
+ .col-sm-3{
+     padding-bottom:30px;
+ }
 /* styling navbar*/
+
 .logoimg {
     padding: 18px;
-    width: 12%;  
+    width: 7%;  
 }
+
 .nav {
-    height: 10%;
+    height:7%;
     width: 100%; 
     overflow: hidden;
     background-color:darksalmon;
@@ -30,11 +60,11 @@ a:link:hover{
 .nav a {
     font-family:'helvetica';
     float: right;
-    font-size: 23px;
+    font-size: 17px;
     font-weight: bolder;
     color: white;
-    margin:auto;
-    width: 26%;
+    padding: 25px;
+    width: 20%;
     text-decoration: none;
 }
 
@@ -74,6 +104,8 @@ h5 {
 }
 .col-sm-3 {
     padding-bottom:30px;
+.navbar a:hover{
+    background-color: red;
 }
 
 /* styling login/Signup Page*/
@@ -83,7 +115,7 @@ h5 {
     width: 50%;
     margin:auto;
 }
-.containerlog {
+.containerlog{
     padding: 20px 90px;
     background-color: #C4C4C4;
 }
@@ -112,6 +144,9 @@ input[type=email], input[type=password], input[type=name] {
 }
 button:hover {
     opacity:.8;
+}
+.container {
+    padding: 16px;
 }
 
 /* styling recipe page */

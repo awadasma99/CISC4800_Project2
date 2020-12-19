@@ -21,7 +21,9 @@
     <body>
         <header>
             <div class="nav">
-                <img src="{{url_for('static', filename='images/LOGO.png')}}" width="3%">
+                <div class="logoimg">
+                    <img src="{{url_for('static', filename='images/LOGO.png')}}" width="30%">
+                </div>
                 <!-- <a href="{{ url_for('main.index') }}">LOGO</a> -->
                 <a href="{{ url_for('main.index') }}">Home</a>
                 

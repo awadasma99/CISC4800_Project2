@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<br><br><br>
+<br><br>
 
 {% with messages = get_flashed_messages() %}
 {% if messages %}
@@ -12,16 +12,22 @@
 {% endif %}
 {% endwith %}
 
-<h2>Login</h2>
-<div class="containerlog">
+<center><h2>Login</h2></center>
+<div class="logsign">
     <form method="POST" action="/login">
-        <input type="email" name="email" placeholder="your email (e.g. john@example.com)">
-        <input type="password" name="password" placeholder="your password">
-        <button type="submit">Login</button>
-        <label>
-            <input type="checkbox">
-            Remember me
-        </label>
+        <div class="containerlog">
+            <label for="email"><b>Username</b></label><br>
+            <input type="email" name="email" placeholder="Email (e.g. john@example.com)">
+            <br>
+            <label for="psw"><b>Password</b></label><br>
+            <input type="password" name="psw" placeholder="Password">
+            <br>
+            <label> <input type="checkbox"> Remember me </label>
+            <br>
+            <div class="logsignbtn">
+                <button type="submit">Login</button>
+            </div>
+        </div>
     </form>
 </div>
 

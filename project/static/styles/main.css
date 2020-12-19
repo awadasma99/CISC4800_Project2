@@ -4,6 +4,16 @@ body {
     background-color:aliceblue;
     font-size: 15px;
 }
+a:link {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+}
+-a:link:hover {
+    color: grey;
+}
+
 /* styling navbar*/
 .logoimg {
     padding: 18px;
@@ -84,7 +94,7 @@ h5 {
     width: 50%;
     margin:auto;
 }
-.containerlog{
+.containerlog {
     padding: 20px 90px;
     background-color: #C4C4C4;
 }

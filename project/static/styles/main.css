@@ -43,7 +43,7 @@ body {
     background-color: #C4C4C4;
 }
 .logsignlogo {
-    padding-left:45%;
+    margin:auto;
     padding-bottom: 10px;
 }
 input[type=email], input[type=password], input[type=name] {
@@ -58,11 +58,11 @@ input[type=email], input[type=password], input[type=name] {
     background-color: #57616b;
     color: white;
     padding: 14px 20px;
-    margin-left: 40%;
+    margin: auto;
     border:none;
     cursor: pointer;
 }
-button:hover{
+button:hover {
     opacity:.8;
 }
 .container {

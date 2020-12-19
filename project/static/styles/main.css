@@ -38,8 +38,12 @@ body {
     margin:auto;
 }
 .containerlog{
-    padding: 90px 90px;
+    padding: 20px 90px;
     background-color: #C4C4C4;
+}
+.logsignlogo {
+    padding-left:45%;
+    padding-bottom: 10px;
 }
 input[type=email], input[type=password], input[type=name] {
     width: 100%;

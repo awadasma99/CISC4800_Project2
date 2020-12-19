@@ -3,8 +3,8 @@
 {% block title %} Sign Up {% endblock %}
 
 {% block body %}
-
-<h1>Sign Up</h1>
+<br><br>
+<center><h2>Sign Up</h2></center>
 
 {% with messages = get_flashed_messages() %}
 {% if messages %}
@@ -12,13 +12,25 @@
 {% endif %}
 {% endwith %}
 
-<form method="POST" action="/signup">
-    <input type="email" name="email" placeholder="your email (e.g. john@example.com)">
-    <input type="text" name="name" placeholder="your name (e.g. John Doe)">
-    <input type="password" name="password" placeholder="your password">
-
-    <button>Sign Up</button>
-
-</form>
+<div class="logsign">
+    <form method="POST" action="/signup">
+        <div class="containerlog">
+            <label for="email"><b>Username</b></label><br>
+            <input type="email" name="email" placeholder="Your email (e.g. john@example.com)">
+            <br>
+            <label for="name"><b>Name</b></label><br>
+            <input type="name" name="name" placeholder="Your name (e.g. John Doe)">
+            <br>
+            <label for="psw"><b>Password</b></label><br>
+            <input type="password" name="psw" placeholder="Your Password">
+            <br>
+            <label> <input type="checkbox"> Remember me </label>
+            <br>
+            <div class="logsignbtn">
+                <button type="submit">Sign Up</button>
+            </div>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

@@ -6,6 +6,15 @@ body {
     text-align: center;
 }
 
+.search{
+    text-align:right;
+    font-size:10px;
+    text-decoration:underline;
+    position:absolute;
+    padding-left:940px;
+    top:110px;
+}
+
 h5{
     text-align:left;
     font-size:50px;
@@ -13,7 +22,7 @@ h5{
 }
 
 .row{
-    padding-top: 50px;
+    padding-top: 100px;
  }
  
  .recipeList{

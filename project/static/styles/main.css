@@ -5,7 +5,13 @@ body {
     font-size: 15px;
 }
 
-.search{
+.input-form {
+    background-image: url("../images/bigStockPhoto.jpg");
+    background-size: cover;
+    height: 350px;
+}
+
+.search {
     text-align:right;
     font-size:10px;
     text-decoration:underline;
@@ -14,13 +20,13 @@ body {
     top:110px;
 }
 
-h5{
+h5 {
     text-align:left;
     font-size:50px;
     font-family:monospace
 }
 
-.row{
+.row {
     padding-top: 100px;
  }
  

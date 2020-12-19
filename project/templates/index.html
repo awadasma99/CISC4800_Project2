@@ -5,32 +5,31 @@
 {% block body %}
 
     <center>
-        <h1>recipe search</h1>
-        <form action="/recipes"> 
-            <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="recipe" aria-describedby="search-button" name="recipe" onkeyup="validate(this)">
-            <button id="search-button" type="submit" disabled>search</button> <br>
-            
-            allergies: <input type="text" placeholder="allergies (e.g. peanuts, almonds)" name="allergies"> <br>
-            
-            <label for="diet">diet options:</label>
-            <select id="diet" name="diet">
-                <option value="">-</option>
-                <option value="vegetarian">vegetarian</option>
-                <option value="lacto-vegetarian">lacto-vegetarian</option>
-                <option value="ovo-vegetarian">ovo-vegetarian</option>
-                <option value="vegan">vegan</option>
-                <option value="gluten free">gluten free</option>
-                <option value="ketogenic">ketogenic</option>
-                <option value="pescetarian">pescetarian</option>
-                <option value="paleo">paleo</option>
-                <option value="primal">primal</option>
-                <option value="whole30">whole30</option>
-            </select>
-        </form>
+        <div class="input-form">
+            <h1>recipe search</h1>
+            <form action="/recipes"> 
+                <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="recipe" aria-describedby="search-button" name="recipe" onkeyup="validate(this)">
+                <button id="search-button" type="submit" disabled>search</button> <br>
+                
+                allergies: <input type="text" placeholder="allergies (e.g. peanuts, almonds)" name="allergies"> <br>
+                
+                <label for="diet">diet options:</label>
+                <select id="diet" name="diet">
+                    <option value="">-</option>
+                    <option value="vegetarian">vegetarian</option>
+                    <option value="lacto-vegetarian">lacto-vegetarian</option>
+                    <option value="ovo-vegetarian">ovo-vegetarian</option>
+                    <option value="vegan">vegan</option>
+                    <option value="gluten free">gluten free</option>
+                    <option value="ketogenic">ketogenic</option>
+                    <option value="pescetarian">pescetarian</option>
+                    <option value="paleo">paleo</option>
+                    <option value="primal">primal</option>
+                    <option value="whole30">whole30</option>
+                </select>
+            </form>
+        </div>
     </center>
-
-    <img src="{{url_for('static', filename='images/bigStockPhoto.jpg')}}" width="100%">
-
 
     <div class="row">
         <div class="col-10"><h2> Popular Recipes </h2></div>
@@ -168,6 +167,9 @@
                 button.disabled = true; 
             }
         }
+
+        $( "#vegetarian-recipes" ).hide();
+        $( "#vegan-recipes" ).hide();
 
         $( "#vegetarian-filter" ).click(function() {
             $( "#vegetarian-recipes" ).show();

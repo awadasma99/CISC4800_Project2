@@ -1,13 +1,14 @@
 body {
-    font-family: 'Castoro', serif;
+    font-family: 'Montserrat';
     margin:0px;
     background-color: #f8f8ff;
-    font-size: 18px;
+    font-size: 15px;
+    text-align: center;
 }
 
 /* styling navbar*/
 .logoimg {
-    padding: 20px 22px;
+    padding: 20px 30px;
 }
 .nav {
     width: 100%; 

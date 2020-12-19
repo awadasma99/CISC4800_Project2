@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, session, flash, redirect,
 from flask_wtf import FlaskForm
 from flask_login import login_required, current_user 
 from . import db
-from .forms import EditProfileForm
+from .forms import EditProfileForm, SaveRecipe
 import requests
 import itertools
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -11,7 +11,7 @@ main = Blueprint('main', __name__)
 
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 headers = {
-    'x-rapidapi-key': "8d518c5534mshba4a11ab4c1cb0ep1c69d1jsn4c0415dbddd7",
+    'x-rapidapi-key': "API-KEY",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
@@ -98,7 +98,7 @@ def recipes():
 
         return render_template('recipes.html', recipes=results, summaries=summaries)
 
-@main.route('/recipe')
+@main.route('/recipe', methods=['GET', 'POST'])
 def recipe():
     # recipe details
     recipe_id = request.args['id']
@@ -115,6 +115,11 @@ def recipe():
     similar_recipes = requests.request("GET", url + similar_endpoint, headers=headers).json()
 
     # nutrition info 
-    nutrition = recipe_details['nutrition']['nutrients'] 
+    nutrition = recipe_details['nutrition']['nutrients']
 
-    return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions, similarRecipes=similar_recipes, nutrition=nutrition)
+    form = SaveRecipe()
+    if form.is_submitted():
+        flash('Recipe has been saved!')
+        return render_template('profile.html')
+
+    return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions, similarRecipes=similar_recipes, nutrition=nutrition, form=form)

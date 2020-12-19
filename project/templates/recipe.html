@@ -8,6 +8,11 @@
     <div class="column left">
         <img src="{{recipe['image']}}" alt="..." width="100%"><br><br>
         
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+                {{ form.save() }}
+        </form>
+
         <p><h3> Ingredients </h3>
             <ul>
                 {% for ingredient in recipe['extendedIngredients'] %}
@@ -31,17 +36,21 @@
         <p>
             Diet(s): 
             {% if recipe['diets'] %} 
-                {{recipe['diets']}} <br>
+                {% for diet in recipe['diets'] %}
+                    [{{ diet }}] 
+                {% endfor %} 
             {% else %}
                 None <br>
-            {% endif %}<br>
+            {% endif %} <br>
 
             Cuisine: 
             {% if recipe['cuisines'] %} 
-                {{recipe['cuisines']}} <br>
+                {% for cuisine in recipe['cuisines'] %}
+                    [{{ cuisine }}] 
+                {% endfor %} 
             {% else %}
                 None <br>
-            {% endif %}    
+            {% endif %} <br>    
         </p>
     </div>
 

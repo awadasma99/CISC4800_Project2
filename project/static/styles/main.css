@@ -1,15 +1,24 @@
 body {
     font-family: 'helvetica';
     margin:0px;
-    background-color: antiquewhite;
+    background-color:aliceblue;
     font-size: 15px;
     text-align: center;
+}
+a:link {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:link:hover{
+    color: grey;
 }
 
 /* styling navbar*/
 .logoimg {
     padding: 18px;
-    width: 7%;  
+    width: 20%;  
 }
 .nav {
     height:7%;
@@ -33,6 +42,14 @@ body {
     background-color: red;
 }
 
+/* Styling Homepage*/
+.filtercontainer form {
+    background-color: bisque;
+}
+.col-3 {
+    padding: 15px 20px;
+}
+
 /*Styling Recipe List Page*/
 h5 {
     text-align:left;
@@ -42,7 +59,6 @@ h5 {
 .row {
     padding-top: 50px;
 }
-
 .recipeList {
     font-family: tahoma;
     text-align: left;
@@ -73,7 +89,7 @@ h5 {
 }
 .logsignlogo {
     margin:auto;
-    padding-bottom: 10px;
+    padding-bottom: 15px;
 }
 input[type=email], input[type=password], input[type=name] {
     width: 100%;
@@ -93,9 +109,6 @@ input[type=email], input[type=password], input[type=name] {
 }
 button:hover {
     opacity:.8;
-}
-.container {
-    padding: 16px;
 }
 
 /* styling recipe page */

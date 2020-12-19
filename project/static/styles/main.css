@@ -1,60 +1,14 @@
 body {
     font-family: 'helvetica';
     margin:0px;
-    background-color: antiquewhite;
+    background-color:aliceblue;
     font-size: 15px;
 }
-
-.input-form {
-    background-image: url("../images/bigStockPhoto.jpg");
-    background-size: cover;
-    height: 350px;
-}
-
-.search {
-    text-align:right;
-    font-size:10px;
-    text-decoration:underline;
-    position:absolute;
-    padding-left:940px;
-    top:110px;
-}
-
-h5 {
-    text-align:left;
-    font-size:50px;
-    font-family:monospace
-}
-
-.row {
-    padding-top: 100px;
- }
- 
- .recipeList{
-     font-family: tahoma;
-     text-align: left;
-     font-size:15px;
-     line-height: 1.7;
- }
- 
- .col-sm-9{
-     font-family: tahoma;
-     text-align: left;
-     font-size:15px;
-     padding-right:100px;
-     padding-bottom: 30px;
- }
- 
- .col-sm-3{
-     padding-bottom:30px;
- }
 /* styling navbar*/
-
 .logoimg {
     padding: 18px;
     width: 7%;  
 }
-
 .nav {
     height:7%;
     width: 100%; 
@@ -75,8 +29,19 @@ h5 {
 }
 
 /* Styling Homepage*/
-.filtercontainer {
-    background-color: bisque;
+.input-form {
+    background-image: url("../images/bigStockPhoto.jpg");
+    background-size: cover;
+    height: 350px;
+    opacity: 0.8;
+}
+.search{
+    text-align:right;
+    font-size:10px;
+    text-decoration:underline;
+    position:absolute;
+    padding-left:940px;
+    top:110px;
 }
 .col-3 {
     padding: 10px 20px;
@@ -110,8 +75,6 @@ h5 {
 }
 .col-sm-3 {
     padding-bottom:30px;
-.navbar a:hover{
-    background-color: red;
 }
 
 /* styling login/Signup Page*/

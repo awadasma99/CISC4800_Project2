@@ -16,7 +16,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    </head><br><br><br>
+    </head><br><br>
 
     <body>
         <header>
@@ -39,7 +39,7 @@
                 {% if current_user.is_authenticated %}
                 <a href="{{ url_for('auth.logout') }}">Logout</a>
                 {% endif %}
-            </div>
+            </div><br><br>
         </header>
 
         <div class="container">

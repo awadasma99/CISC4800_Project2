@@ -7,7 +7,7 @@ body {
 
 /* styling navbar*/
 .logoimg {
-    padding: 20px 20px;
+    padding: 20px 22px;
 }
 .nav {
     width: 100%; 
@@ -22,8 +22,8 @@ body {
     font-size: 25px;
     font-weight: bolder;
     color: white;
-    padding: 20px 16px;
-    width: 20%;
+    padding: 25px;
+    width: 28%;
     text-decoration: none;
 }
 .navbar a:hover{
@@ -58,7 +58,7 @@ input[type=email], input[type=password], input[type=name] {
     cursor: pointer;
 }
 button:hover{
-    opacity:.08
+    opacity:.8;
 }
 .container {
     padding: 16px;

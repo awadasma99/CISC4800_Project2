@@ -18,10 +18,10 @@ a:link:hover{
 /* styling navbar*/
 .logoimg {
     padding: 18px;
-    width: 20%;  
+    width: 12%;  
 }
 .nav {
-    height:7%;
+    height: 10%;
     width: 100%; 
     overflow: hidden;
     background-color:darksalmon;
@@ -31,23 +31,20 @@ a:link:hover{
 .nav a {
     font-family:'helvetica';
     float: right;
-    font-size: 17px;
+    font-size: 23px;
     font-weight: bolder;
     color: white;
-    padding: 25px;
-    width: 20%;
+    margin:auto;
+    width: 26%;
     text-decoration: none;
-}
-.navbar a:hover{
-    background-color: red;
 }
 
 /* Styling Homepage*/
-.filtercontainer form {
+.filtercontainer {
     background-color: bisque;
 }
 .col-3 {
-    padding: 15px 20px;
+    padding: 10px 20px;
 }
 
 /*Styling Recipe List Page*/

@@ -36,17 +36,21 @@
         <p>
             Diet(s): 
             {% if recipe['diets'] %} 
-                {{recipe['diets']}} <br>
+                {% for diet in recipe['diets'] %}
+                    [{{ diet }}] 
+                {% endfor %} 
             {% else %}
                 None <br>
-            {% endif %}<br>
+            {% endif %} <br>
 
             Cuisine: 
             {% if recipe['cuisines'] %} 
-                {{recipe['cuisines']}} <br>
+                {% for cuisine in recipe['cuisines'] %}
+                    [{{ cuisine }}] 
+                {% endfor %} 
             {% else %}
                 None <br>
-            {% endif %}    
+            {% endif %} <br>    
         </p>
     </div>
 

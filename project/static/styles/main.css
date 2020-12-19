@@ -18,13 +18,13 @@ body {
     top: 0;
 }
 .nav a {
-    font-family:'Courier New', Courier, monospace;
+    font-family:'helvetica';
     float: right;
     font-size: 25px;
     font-weight: bolder;
-    color: white;
+    color: darksalmon;
     padding: 25px;
-    width: 28%;
+    width: 20%;
     text-decoration: none;
 }
 .navbar a:hover{

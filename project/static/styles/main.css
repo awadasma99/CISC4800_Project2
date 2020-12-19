@@ -45,6 +45,10 @@ a:link:hover{
 .col-3 {
     padding: 10px 20px;
 }
+.col-3 img{
+    width:70%;
+    padding-bottom: 5px;
+}
 
 /*Styling Recipe List Page*/
 h5 {
@@ -83,9 +87,12 @@ h5 {
     padding: 20px 90px;
     background-color: #C4C4C4;
 }
+.logsignlogo img {
+    width: 20%;
+}
 .logsignlogo {
-    margin:auto;
     padding-bottom: 15px;
+    padding-left: 45%;
 }
 input[type=email], input[type=password], input[type=name] {
     width: 100%;

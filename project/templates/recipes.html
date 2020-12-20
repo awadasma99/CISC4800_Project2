@@ -45,7 +45,8 @@
                 {{summaries[loop.index - 1] | safe}}
             </p>
         </div>
-        <div class="col-3"><img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="80%""></div>
+        <div class="col-3">
+            <a href="/recipe?id={{recipe['id']}}"><img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="80%""></a></div>
         {% endfor %}
     </div>
 </div>

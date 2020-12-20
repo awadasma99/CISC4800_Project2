@@ -4,6 +4,7 @@
 
 <h5> Recipes <h5>
 
+<!--
 <div class = "search">
     <div class="row">
         <div class="col-12">
@@ -33,12 +34,18 @@
     </div>
     
 </div>
+-->
 
-<div class = recipeList>
+<div class="recipeList">
     <div class="row">
         {% for recipe in recipes %}
-        <div class="col-sm-9"><p>{{summaries[loop.index - 1] | safe}}</p></div>
-        <div class="col-sm-3"><img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="80%""></div>
+        <div class="col-9">
+            <p>
+                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a> <br>
+                {{summaries[loop.index - 1] | safe}}
+            </p>
+        </div>
+        <div class="col-3"><img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="80%""></div>
         {% endfor %}
     </div>
 </div>

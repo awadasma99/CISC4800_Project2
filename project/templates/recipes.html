@@ -36,7 +36,7 @@
         {% for recipe in recipes %}
         <div class="col-9">
             <p>
-                <a href="/recipe?id={{recipe['id']}}">{{recipe['title']}}</a> <br>
+                <a href="/recipe?id={{recipe['id']}}"><u>{{recipe['title']}}</u></a> <br>
                 {{summaries[loop.index - 1] | safe}}
             </p>
         </div>

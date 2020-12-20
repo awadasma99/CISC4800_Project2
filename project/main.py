@@ -11,7 +11,7 @@ main = Blueprint('main', __name__)
 
 url = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/"
 headers = {
-    'x-rapidapi-key': "8d518c5534mshba4a11ab4c1cb0ep1c69d1jsn4c0415dbddd7",
+    'x-rapidapi-key': "KEY",
     'x-rapidapi-host': "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
@@ -121,6 +121,10 @@ def recipe():
     if form.is_submitted():
         flash('Recipe has been saved!')
         this_recipe = recipe_id
-        current_user.saved_recipes.append(this_recipe)
+        recipe_title = recipe_details['title']
+
+        info = [this_recipe, recipe_title]
+        # current_user.saved_recipes.append(this_recipe)
+        current_user.saved_recipes.append(info)
         
     return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions, similarRecipes=similar_recipes, nutrition=nutrition, form=form)

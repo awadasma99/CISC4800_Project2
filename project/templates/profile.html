@@ -21,8 +21,8 @@
     <p>   
         {% for obj in current_user.saved_recipes %}
             <div class="col-3">
-                <a href="/recipe?id={{obj}}"><img src="https://spoonacular.com/recipeImages/{{obj}}-556x370.jpg" alt="..."></a><br>
-                <p><a href="/recipe?id={{obj}}"></a></p>
+                <a href="/recipe?id={{obj[0]}}"><img src="https://spoonacular.com/recipeImages/{{obj[0]}}-556x370.jpg" alt="..."></a><br>
+                <p><a href="/recipe?id={{obj[0]}}">{{obj[1]}}</a></p>
             </div>
         {% endfor %}
         

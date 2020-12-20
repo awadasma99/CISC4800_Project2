@@ -15,14 +15,15 @@
 
 <p><a href="{{ url_for('main.edit_profile') }}">Edit your profile</a></p>
 
-
-<div class="column">
+<div class="row">
     <h3>Saved Recipes</h3>
-    <p>
+    <p>   
         {% for obj in current_user.saved_recipes %}
-        <div class="col-1">
-            <br><a href="/recipe?id={{obj}}">recipe</a><br>
-        </div>
+            
+            <div class="col-3">
+                <a href="/recipe?id={{obj}}"><img src="https://spoonacular.com/recipeImages/{{obj}}-556x370.jpg" alt="..."></a><br>
+                <p><a href="/recipe?id={{obj}}">Recipe Number {{obj}}</a></p>
+            </div>
         {% endfor %}
     </p>
 </div>

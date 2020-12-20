@@ -123,11 +123,6 @@ h5 {
 }
 
 /* styling login/Signup Page*/
-.logsign {
-    background-image: url("../images/BG-LOGIN-SIGNUP-PAGE.png");
-    background-size: cover;
-    height: 350px;
-}
 .logsign form {
     border: 3px solid #f1f1f1;
     background-color:#C4C4C4;

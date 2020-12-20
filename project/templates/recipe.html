@@ -81,11 +81,12 @@
                 </ol>
             </p>
         </div>
+        <hr>
     </div>
 </div>
 
-<center><h2>Similar Recipes</h2></center>
-<div class="row">
+<div class="row similar-recipes">
+    <h2>Similar Recipes</h2>
     <p>
         {% for recipe in similarRecipes [0:4]%}
         <div class="col-3">
@@ -95,6 +96,7 @@
         {% endfor %}
     </p>
 </div>
+
 
 
 {% endblock %}

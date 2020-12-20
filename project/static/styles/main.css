@@ -189,6 +189,10 @@ button:hover {
 footer {
     color: black;   
     background-color:darksalmon	; 
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     -moz-column-width: 200px;
     -webkit-column-width: 200px;
     column-width: 200px;

@@ -93,17 +93,14 @@ h5 {
     font-size:50px;
     font-family:monospace;
 }
-.search{
+.col-12 {
     text-align:right;
     font-size:10px;
     text-decoration:underline;
     position:absolute;
-    padding-left:940px;
+    padding-right: 10%;
     top:110px;
-    padding-bottom: 10px;
-}
-.rowrecipes {
-    padding-top: 170px;
+    padding-bottom: 10%;
 }
 .recipeList {
     font-family: tahoma;
@@ -115,10 +112,12 @@ h5 {
     font-family: tahoma;
     text-align: left;
     font-size:15px;
+    padding-top: 10%;
     padding-right:100px;
     padding-bottom: 30px;
 }
 .col-sm-3 {
+    padding-top: 10%;
     padding-bottom:30px;
 }
 

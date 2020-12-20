@@ -4,8 +4,9 @@
 
 {% block body %}
 
-<h1>Profile</h1>
-<h2>welcome, {{ current_user.name }}</h2>
+<h5>{{ current_user.name }}'s Profile</h5>
+<h5></h5>
+<h4> Welcome to your Profile page, where you can save all your favorite recipes! </h4><br>
 
 {% with messages = get_flashed_messages() %}
 {% if messages %}
@@ -16,15 +17,15 @@
 <p><a href="{{ url_for('main.edit_profile') }}">Edit your profile</a></p>
 
 <div class="row">
-    <h3>Saved Recipes</h3>
+    <center><h3><u>Saved Recipes</u></h3></center>
     <p>   
         {% for obj in current_user.saved_recipes %}
-            
             <div class="col-3">
                 <a href="/recipe?id={{obj}}"><img src="https://spoonacular.com/recipeImages/{{obj}}-556x370.jpg" alt="..."></a><br>
-                <p><a href="/recipe?id={{obj}}">Recipe Number {{obj}}</a></p>
+                <p><a href="/recipe?id={{obj}}"></a></p>
             </div>
         {% endfor %}
+        
     </p>
 </div>
 

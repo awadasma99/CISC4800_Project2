@@ -8,11 +8,19 @@
     <div class="column left">
         <img src="{{recipe['image']}}" alt="..." width="100%"><br><br>
         
+        {% if current_user.is_authenticated %}
         <form action="" method="post">
             {{ form.hidden_tag() }}
                 {{ form.save() }}
         </form>
+        {% endif %}
 
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {{ messages[0] }}
+            {% endif %}
+        {% endwith %}
+        
         <p><h3> Ingredients </h3>
             <ul>
                 {% for ingredient in recipe['extendedIngredients'] %}

@@ -2,12 +2,12 @@
 {% block title %} results {% endblock %}
 {% block body %}
 
-<h5> Recipes <h5>
 
-<div class="recipeList">
+
+<div class="recipeList"></div>
     <div class="row">
-        <div class="col-med-12">
-            <h1><u>recipe search</u></h1>
+        <div class="col-med-9">
+            <center><h1><u>Recipe Search</u></h1>
             <form action="/recipes"> 
                 <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="recipe" aria-describedby="search-button" name="recipe" onkeyup="validate(this)">
                 <button id="search-button" type="submit">search</button> <br>
@@ -29,19 +29,21 @@
                     <option value="whole30">whole30</option>
                 </select>
             </form>
-        </div>
+        </div></center>
     </div>
 
+    <h5> Recipes </h5>
     <div class="row">
         {% for recipe in recipes %}
+        <div class="col-3">
+            <a href="/recipe?id={{recipe['id']}}"><img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="80%""></a></div>
+
         <div class="col-9">
             <p>
                 <a href="/recipe?id={{recipe['id']}}"><u>{{recipe['title']}}</u></a> <br>
                 {{summaries[loop.index - 1] | safe}}
             </p>
-        </div>
-        <div class="col-3">
-            <a href="/recipe?id={{recipe['id']}}"><img src="https://spoonacular.com/recipeImages/{{recipe['id']}}-556x370.jpg" alt="..." width="80%""></a></div>
+        </div>   
         {% endfor %}
     </div>
 </div>

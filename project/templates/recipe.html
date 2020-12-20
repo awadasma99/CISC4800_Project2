@@ -3,87 +3,88 @@
 {% block title %} {{recipe['title']}} {% endblock %}
 
 {% block body %}
-
-<div class="row">
-    <div class="column left">
-        <img src="{{recipe['image']}}" alt="..." width="100%"><br><br>
-        
-        {% if current_user.is_authenticated %}
-        <form action="" method="post">
-            {{ form.hidden_tag() }}
-                {{ form.save() }}
-        </form>
-        {% endif %}
-
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {{ messages[0] }}
-            {% endif %}
-        {% endwith %}
-        
-        <p><h3> Ingredients </h3>
-            <ul>
-                {% for ingredient in recipe['extendedIngredients'] %}
-                    <li>{{ingredient['name']}}</li><br>
-                {% endfor %}
-            </ul>
-        </p><br>
-
-        <h3>Nutrition Info</h3>
-        <p>
-            Calories: {{nutrition[0]['amount']}} {{nutrition[0]['unit']}}<br>
-            Fat: {{nutrition[1]['amount']}} {{nutrition[1]['unit']}}<br>
-            Saturated Fat: {{nutrition[2]['amount']}} {{nutrition[2]['unit']}}<br>
-            Carbohydrates: {{nutrition[3]['amount']}} {{nutrition[3]['unit']}}<br>
-            Sugar: {{nutrition[5]['amount']}} {{nutrition[5]['unit']}}<br>
-            Cholesterol: {{nutrition[6]['amount']}} {{nutrition[6]['unit']}}<br>
-            Protein: {{nutrition[8]['amount']}} {{nutrition[8]['unit']}}<br>
-        </p><br>
-
-        <h3>Extra Info</h3>
-        <p>
-            Diet(s): 
-            {% if recipe['diets'] %} 
-                {% for diet in recipe['diets'] %}
-                    [{{ diet }}] 
-                {% endfor %} 
-            {% else %}
-                None <br>
-            {% endif %} <br>
-
-            Cuisine: 
-            {% if recipe['cuisines'] %} 
-                {% for cuisine in recipe['cuisines'] %}
-                    [{{ cuisine }}] 
-                {% endfor %} 
-            {% else %}
-                None <br>
-            {% endif %} <br>    
-        </p>
-    </div>
-
-    <div class="column right">
-        <h1>{{recipe['title']}}</h1><br>
-
-        <h3> Time to Cook: </h3>
-        <p>{{recipe['readyInMinutes']}} minutes</p>
-
-        <h3> Servings: </h3>
-        <p>{{recipe['servings']}}</p><br>
+<div class=recipe>
+    <div class="row">
+        <div class="col-4">
+            <img src="{{recipe['image']}}" alt="..." width="100%"><br><br>
             
-        <p> <h3>Instructions </h3>
-            <ol>
-                {% for object in instructions %}
-                    {% for step in object['steps'] %}
-                        <li>{{step['step']}}</li><br><br>
+            {% if current_user.is_authenticated %}
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                    {{ form.save() }}
+            </form>
+            {% endif %}
+
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {{ messages[0] }}
+                {% endif %}
+            {% endwith %}
+            
+            <p><h3> Ingredients </h3>
+                <ul>
+                    {% for ingredient in recipe['extendedIngredients'] %}
+                        <li>{{ingredient['name']}}</li><br>
                     {% endfor %}
-                {% endfor %}
-            </ol>
-        </p>
+                </ul>
+            </p><br>
+
+            <h3>Nutrition Info</h3>
+            <p>
+                Calories: {{nutrition[0]['amount']}} {{nutrition[0]['unit']}}<br>
+                Fat: {{nutrition[1]['amount']}} {{nutrition[1]['unit']}}<br>
+                Saturated Fat: {{nutrition[2]['amount']}} {{nutrition[2]['unit']}}<br>
+                Carbohydrates: {{nutrition[3]['amount']}} {{nutrition[3]['unit']}}<br>
+                Sugar: {{nutrition[5]['amount']}} {{nutrition[5]['unit']}}<br>
+                Cholesterol: {{nutrition[6]['amount']}} {{nutrition[6]['unit']}}<br>
+                Protein: {{nutrition[8]['amount']}} {{nutrition[8]['unit']}}<br>
+            </p><br>
+
+            <h3>Extra Info</h3>
+            <p>
+                Diet(s): 
+                {% if recipe['diets'] %} 
+                    {% for diet in recipe['diets'] %}
+                        [{{ diet }}] 
+                    {% endfor %} 
+                {% else %}
+                    None <br>
+                {% endif %} <br>
+
+                Cuisine: 
+                {% if recipe['cuisines'] %} 
+                    {% for cuisine in recipe['cuisines'] %}
+                        [{{ cuisine }}] 
+                    {% endfor %} 
+                {% else %}
+                    None <br>
+                {% endif %} <br>    
+            </p>
+        </div>
+
+        <div class="col-8">
+            <h1>{{recipe['title']}}</h1><br>
+
+            <h3> Time to Cook: </h3>
+            <p>{{recipe['readyInMinutes']}} minutes</p>
+
+            <h3> Servings: </h3>
+            <p>{{recipe['servings']}}</p><br>
+                
+            <p> <h3>Instructions </h3>
+                <ol>
+                    {% for object in instructions %}
+                        {% for step in object['steps'] %}
+                            <li>{{step['step']}}</li><br><br>
+                        {% endfor %}
+                    {% endfor %}
+                </ol>
+            </p>
+        </div>
     </div>
 </div>
 
-<h2>Similar Recipes</h2>
+<center><h2>Similar Recipes</h2></center>
 <div class="row">
     <p>
         {% for recipe in similarRecipes [0:4]%}

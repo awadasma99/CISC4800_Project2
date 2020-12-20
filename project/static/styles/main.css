@@ -104,8 +104,8 @@ h5 {
     width: 14%;
     font-size: 12px;
 }
-.input-form button {
-    width: 2%;
+.col-med-12 button {
+    width: 5%;
 }
 .recipeList {
     font-family: tahoma;

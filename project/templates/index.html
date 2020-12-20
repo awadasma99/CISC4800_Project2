@@ -6,12 +6,13 @@
 
     <center>
         <div class="input-form">
-            <form action="/recipes"> 
-                <input type="text" placeholder="recipe name (e.g. blueberry pie)" aria-label="recipe" aria-describedby="search-button" name="recipe" onkeyup="validate(this)"><br>               
+            <form action="/recipes">
+                <h1><b>Search for recipes or ingredients</b></h1>
+                <input type="text" placeholder="recipe name or ingredient (e.g. blueberry pie, blueberries)" aria-label="recipe" aria-describedby="search-button" name="recipe" onkeyup="validate(this)"><br>               
                 <input type="text" placeholder="allergies (e.g. peanuts, almonds)" name="allergies"> <br>
                 <button id="search-button" type="submit" disabled>search</button> <br>
-
-                <label for="diet">diet options:</label>
+                <br>
+                <label for="diet"><h6><b>diet options:</b></h6></label>
                 <select id="diet" name="diet">
                     <option value="">-</option>
                     <option value="vegetarian">vegetarian</option>

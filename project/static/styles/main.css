@@ -16,6 +16,9 @@ a:link {
 a:link:hover {
     color: grey;
 }
+.container {
+    padding: 16px;
+}
 
 /* styling navbar*/
 .logoimg {
@@ -135,6 +138,12 @@ h5 {
 .recipe h3 {
     font-family: tahoma;
 }
+.similar-recipes {
+    padding-left: 4.5%;
+}
+hr {
+    border: 1px solid darksalmon;
+}
 
 /* styling login/Signup Page*/
 .logsign {
@@ -175,9 +184,6 @@ input[type=email], input[type=password], input[type=name] {
 }
 button:hover {
     opacity:.8;
-}
-.container {
-    padding: 16px;
 }
 
 /*Styling Footer*/

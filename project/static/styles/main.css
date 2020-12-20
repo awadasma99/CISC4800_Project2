@@ -4,6 +4,9 @@ body {
     background-color:aliceblue;
     font-size: 15px;
 }
+h1, h2, h3, h5, h6 {
+    font-family: tahoma;
+}
 a:link {
     color: black;
     background-color: transparent;
@@ -126,6 +129,19 @@ h5 {
     padding-bottom:30px;
 }
 
+/* styling recipe page */
+.recipe .row {
+    float: left;
+    padding-top: 2%;
+    padding-left: 5%;
+}
+.recipe .col-4 {
+    padding-right: 2%;
+}
+.recipe h3 {
+    font-family: tahoma;
+}
+
 /* styling login/Signup Page*/
 .logsign form {
     border: 3px solid #f1f1f1;
@@ -167,32 +183,10 @@ button:hover {
     padding: 16px;
 }
 
-/* styling recipe page */
-.column {
-    float: left;
-    padding-top: 2%;
-    padding-left: 5%;
-}
-.column.left {
-    width: 30%;
-}
-.column.right {
-    width: 70%;
-}
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 /*Styling Footer*/
 footer {
     color: black;   
     background-color:darksalmon	; 
-    position:absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     -moz-column-width: 200px;
     -webkit-column-width: 200px;
     column-width: 200px;

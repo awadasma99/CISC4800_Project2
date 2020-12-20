@@ -33,17 +33,26 @@ a:link:hover {
     font-size: 17px;
     font-weight: bolder;
     color: white;
-    padding: 25px;
-    width: 20%;
+    margin: auto;
+    width: 31%;
     text-decoration: none;
 }
 
 /* Styling Homepage*/
 .input-form {
+    height:350px;
+}
+.input-form::after {
+    content:"";
     background-image: url("../images/bigStockPhoto.jpg");
     background-size: cover;
     height: 350px;
-    opacity: 0.8;
+    opacity: .5;
+    top:0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index:-1;
 }
 .search{
     text-align:right;
@@ -67,7 +76,7 @@ h5 {
     font-size:50px;
     font-family:monospace
 }
-.row {
+.rowrecipes {
     padding-top: 50px;
 }
 .recipeList {

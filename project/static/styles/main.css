@@ -40,6 +40,7 @@ a:link:hover {
 
 /* Styling Homepage*/
 .input-form {
+    padding-top:5%;
     height:350px;
 }
 .input-form::after {
@@ -54,20 +55,15 @@ a:link:hover {
     position: absolute;
     z-index:-1;
 }
-.search{
-    text-align:right;
-    font-size:10px;
-    text-decoration:underline;
-    position:absolute;
-    padding-left:940px;
-    top:110px;
-}
 .col-3 {
     padding: 10px 20px;
 }
 .col-3 img{
-    width:70%;
+    width:90%;
     padding-bottom: 5px;
+}
+.col-3 a {
+    margin: auto;
 }
 
 /*Styling Recipe List Page*/
@@ -75,6 +71,14 @@ h5 {
     text-align:left;
     font-size:50px;
     font-family:monospace
+}
+.search{
+    text-align:right;
+    font-size:10px;
+    text-decoration:underline;
+    position:absolute;
+    padding-left:940px;
+    top:110px;
 }
 .rowrecipes {
     padding-top: 50px;

@@ -70,7 +70,7 @@ a:link:hover {
 h5 {
     text-align:left;
     font-size:50px;
-    font-family:monospace
+    font-family:monospace;
 }
 .search{
     text-align:right;
@@ -79,9 +79,10 @@ h5 {
     position:absolute;
     padding-left:940px;
     top:110px;
+    padding-bottom: 10px;
 }
 .rowrecipes {
-    padding-top: 50px;
+    padding-top: 170px;
 }
 .recipeList {
     font-family: tahoma;

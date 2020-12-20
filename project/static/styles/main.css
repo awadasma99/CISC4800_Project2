@@ -183,13 +183,7 @@ button:hover {
 /*Styling Footer*/
 footer {
     color: black;   
-    background-color:darksalmon	; 
-    -moz-column-width: 200px;
-    -webkit-column-width: 200px;
-    column-width: 200px;
-    -moz-column-gap: 25px;
-    -webkit-column-gap: 25px;
-    column-gap: 25px;
+    background-color:darksalmon; 
     padding: 30px 40px;
 }
 footer h1 {

@@ -55,7 +55,7 @@ def edit_profile():
     if form.validate_on_submit():
         current_user.name = form.name.data
         current_user.email = form.email.data
-
+        
         if not check_password_hash(current_user.password, form.old_password.data):
             flash('Incorrect Password: Please try again.')
             return render_template('editprofile.html', title='Edit Profile', form=form)
@@ -120,6 +120,7 @@ def recipe():
     form = SaveRecipe()
     if form.is_submitted():
         flash('Recipe has been saved!')
-        return render_template('profile.html')
-
+        this_recipe = recipe_id
+        current_user.saved_recipes.append(this_recipe)
+        
     return render_template('recipe.html', recipe=recipe_details, instructions=analyzed_instructions, similarRecipes=similar_recipes, nutrition=nutrition, form=form)

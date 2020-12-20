@@ -43,6 +43,14 @@ a:link:hover {
     padding-top:5%;
     height:350px;
 }
+.input-form input[type=text] {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
 .input-form::after {
     content:"";
     background-image: url("../images/bigStockPhoto.jpg");
@@ -102,6 +110,11 @@ h5 {
 }
 
 /* styling login/Signup Page*/
+.logsign {
+    background-image: url("../images/BG-LOGIN-SIGNUP-PAGE.png");
+    background-size: cover;
+    height: 350px;
+}
 .logsign form {
     border: 3px solid #f1f1f1;
     background-color:#C4C4C4;

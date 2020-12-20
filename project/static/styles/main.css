@@ -20,10 +20,11 @@ a:link:hover {
 /* styling navbar*/
 .logoimg {
     padding: 18px;
-    width: 7%;  
+    width: 10%;  
+    align-self: center;
 }
 .nav {
-    height:7%;
+    height:9%;
     width: 100%; 
     overflow: hidden;
     background-color:darksalmon;
@@ -32,13 +33,13 @@ a:link:hover {
 }
 .nav a {
     font-family:'helvetica';
-    float: right;
     font-size: 17px;
     font-weight: bolder;
     color: white;
     margin: auto;
-    width: 31%;
+    width: 30%;
     text-decoration: none;
+    text-align: center;
 }
 
 /* Styling Homepage*/
@@ -136,9 +137,8 @@ h5 {
 }
 
 /* styling login/Signup Page*/
-.fullsize-login {
-    width: 100%; 
-    height: 100%; 
+.logsign {
+    margin: 20px auto; 
 }
 .logsign form {
     border: 3px solid #f1f1f1;
@@ -147,7 +147,7 @@ h5 {
     margin:auto;
 }
 .containerlog {
-    padding: 20px 90px;
+    padding: 30px 90px;
     background-color: #C4C4C4;
 }
 .logsignlogo img {
@@ -185,6 +185,9 @@ footer {
     color: black;   
     background-color:darksalmon; 
     padding: 30px 40px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 footer h1 {
     text-align: center;
@@ -207,7 +210,6 @@ footer a:hover {
 }
 footer address {
     text-align: center;
-    margin-top: 30px;
     font-style: normal;
 }
 .fa {

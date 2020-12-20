@@ -6,10 +6,10 @@ from . import db
 
 
 class EditProfileForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired()])
-    old_password = StringField('old password', validators=[DataRequired()])
-    new_password = StringField('new password', validators=[DataRequired()])
+    name = StringField('NAME', validators=[DataRequired()])
+    email = StringField('EMAIL', validators=[DataRequired()])
+    old_password = StringField('OLD PASSWORD', validators=[DataRequired()])
+    new_password = StringField('NEW PASSWORD', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 class ButtonWidget(object):

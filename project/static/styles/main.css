@@ -95,7 +95,7 @@ h5 {
     text-align:left;
     font-size:50px;
     font-family:tahoma;
-    padding-top: 5px;
+    padding-top: 35px;
 }
 
 .col-med-12 {
@@ -116,6 +116,7 @@ h5 {
     text-align: left;
     font-size:15px;
     line-height: 1.7;
+    padding-top:30px;
 }
 .recipeList .col-3{
     text-align:right;
